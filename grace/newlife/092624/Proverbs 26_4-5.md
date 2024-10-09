@@ -1,7 +1,5 @@
 ## New Life Bible Study | 9/26/2024 | Pastor James Lee
 
-# Proverbs 26:4-5 
-
 Addressing this contradiction: how can we retain our belief in God and the Word of God when there is such a blatant contradiction?
 
 A lot of people have a very simplistic approach to both God and the Bible. The Bible contains a lot of “seeming” contradictions. They are often not real contradictions but appear to be. Depending on the angle with which you perceive something, you’ll see different things. For example a cylinder can be both a circle or a rectangle at the same time. Maybe the reason why we have four gospels is so it provides us a more clear picture of the gospel of Jesus. 
