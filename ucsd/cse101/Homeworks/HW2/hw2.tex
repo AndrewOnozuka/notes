@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{CSE 101 Homework 2}
+\date{Winter 2023}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope Friday January 27th at 11:59pm on gradescope. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[The Easy Way Down, 30 points]
+Dave was already at the top of the ski slope by the time he realized that he wasn't prepared for it. Fortunately, the slope has many branching paths (given by a DAG $G$) that can be taken to the bottom, and Dave is determined to find the easiest way down. Two vertices of $G$ are labelled TOP (Dave's current location) and BOTTOM (the place he is trying to reach). Furthermore, each edge has been assigned a difficulty rating. Dave is trying to find a path to the bottom so that the highest difficulty edge he needs to use is as small as possible.
+
+Give a linear time algorithm that given $G$, TOP, BOTTOM and the difficulty ratings finds Dave's best path.
+
+Hint: For each vertex $v$, compute the maximum difficulty of the best path from TOP to $v$. If you do this for each $v$ in the correct order, it is relatively straightforward.
+\end{ques}
+
+\begin{ques}[Other Attempts to Find Source and Sink Components, 15 points]
+In class we showed that in a directed graph $G$ the vertex with the largest postorder number is in a source SCC. Provide counter-examples to disprove the following statements:
+\begin{enumerate}[(a)]
+\item The vertex with the smallest postorder number is always in a sink SCC. [5 points]
+\item The vertex with the largest preorder number is always in a sink SCC. [5 points]
+\item The vertex with the smallest preorder number is always in a source SCC. [5 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Max Reachable, 25 points]
+Let $G$ be a directed graph where every vertex is assigned a real number. We wish to compute for each vertex $v$ of $G$ the largest number assigned to any vertex reachable from $v$.
+\begin{enumerate}[(a)]
+\item Give a linear time algorithm for this problem if $G$ is strongly connected. [5 points]
+\item Give a linear time algorithm for this problem if $G$ is a DAG. [10 points]
+\item Give a linear time algorithm for this problem for a general directed graph $G$. (Hint: you will want to find a way to combine the previous algorithm ideas.) [10 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Line Switching, 30 points]
+The subway system of Graphopolis is given by an undirected graph $G$ with the vertices representing stations and the edges representing tracks. Furthermore, the edges are partitioned into lines. Each line consists of some contiguous collection of edges and a traveller can travel from any station on a given line to any other without changing trains.
+
+Give an algorithm that given the graph $G$, a description of the lines and two stations $v$ and $w$, determines the fewest number of times that a traveler would need to change trains to get from $v$ to $w$. For full credit, your algorithm should be linear time.
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend working on this homework?
+\end{ques}
+
+\end{document} 

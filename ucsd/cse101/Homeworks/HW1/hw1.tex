@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{CSE 101 Homework 1}
+\date{Winter 2023}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope Friday January 20th at 11:59pm on gradescope. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Rearranging Furniture, 40 points]
+John has a couch that he would like to move from one location in his apartment to another. Unfortunately, his apartment has a twisty maze of narrow hallways and it is not clear if there is room to make the move. The apartment is contained in a cube $S$ feet on a side and the walls and other obstacles are specified by a collection of $N$ triangles arranged in this space. The couch is a solid body whose surface is described by $N$ triangles, but it can be moved and rotated freely so long as it does not collide with the walls. John has the current position and orientation of the couch as well as the desired position and orientation.
+
+Suppose that it is possible for John to move his couch from its starting position to its ending position in such a way that it never comes within closer than an inch to any obstacle in the house. Give an algorithm which runs in time polynomial in $S\cdot N$ to provide a path (given as a sequence of continuous movements of the couch) to bring the couch from its current location to the desired one without colliding with any obstacles in his apartment.
+
+Hint: You will need to find a way to discretize the problem, turning it into a sequence of tiny steps between a finite number of possible states.
+\end{ques}
+
+\begin{ques}[Lab Safety, 40 points]
+Rose is a chemist. In a complicated experiment she has $n$ containers each containing one of $k$ different chemicals. Furthermore, there are $m$ pairs of containers where chemicals can travel from one container to the other and back. Unfortunately, if all $k$ chemicals are allowed to mix in the same container, it will produce toxic byproducts and Rose needs to be able to determine whether this is possible with her setup.
+\begin{enumerate}[(a)]
+\item Give an algorithm that given descriptions of the containers, the connected pairs and a description of which chemical starts in each container determines whether or not there is any container which every chemical is capable of reaching. Your algorithm should have runtime $O(n+m)$. [15 points]
+\item Suppose instead of being bi-directional, some of the paths between containers can only be traversed in one direction. Can the algorithm from part (a) still work in this context in $O(n+m)$ time? Why or why not? [10 points]
+\item For the more complicated version of this problem discussed in part (b), give an algorithm that runs in time $O(k(n+m))$. [15 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Preorder and Postorder and Number of Edges, 20 points]
+Suppose that $G$ is an undirected graph with 10 vertices $A,B,C,D,E,F,G,H,I,J$. When running DFS on $G$ the vertices and assigned preorder and postorder numbers shown in the table below. What are the largest and smallest possible numbers of edges in $G$?
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Vertex & Pre- & Post- \\
+\hline
+A&1&16\\
+\hline
+B&2&11\\
+\hline
+C&3&4\\
+\hline
+D&5&10\\
+\hline
+E&6&7\\
+\hline
+F&8&9\\
+\hline
+G&12&15\\
+\hline
+H&13&14\\
+\hline
+I&17&20\\
+\hline
+J&18&19\\
+\hline
+\end{tabular}
+\end{center}
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend working on this homework?
+\end{ques}
+
+\end{document} 

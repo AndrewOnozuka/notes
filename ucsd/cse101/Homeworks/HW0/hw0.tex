@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{CSE 101 Homework 0}
+\date{Winter 2023}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope Friday January 13th at 11:59pm on gradescope. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Program Runtimes, 20 points]
+Consider the following two programs:
+\begin{verbatim}
+Alg1(n)
+  for i = 1 to n^3
+    for j = 1 to n
+      Print(j)
+\end{verbatim}
+and
+\begin{verbatim}
+Alg2(n)
+  for i = 1 to n^3
+    if i <= n
+      for j = 1 to n
+        Print(j)
+\end{verbatim}
+For each of these programs give the asymptotic runtime as $\Theta(f(n))$ for some function $f$ and justify your work.
+\end{ques}
+
+\begin{ques}[Asymptotic Comparisons, 20 points]
+Sort the following functions of $n$ in terms of their asymptotic growth rates. In particular, ones should go later in the list if they are larger when sufficiently large values of $n$ are used as inputs. Which of these functions have polynomial growth rates? Remember to justify your answers.
+\begin{itemize}
+\item $a(n) = 2^{\sqrt{\log(n)}}$
+\item $b(n) = 2^{\sqrt{n}}$
+\item $c(n) = 10^{10^{10}}n^{0.01}$
+\item $d(n) = 6^{\log_2(n)}$
+\item $e(n) = n(1000+\sqrt{n})(1000+n)$
+\end{itemize}
+\end{ques}
+
+\begin{ques}[Graph Coloring, 30 points]
+Let $G$ be a finite graph with maximum degree at most $d$ (that is no vertex is connected to more than $d$ other vertices). Show that each vertex of $G$ can be assigned an integer in $\{1,2,\ldots,d+1\}$ so that no two adjacent vertices are assigned the same integer. Hint: Use induction on the number of vertices.
+\end{ques}
+
+\begin{ques}[Recurrence Relation, 30 points]
+Suppose that you have a function $T(n)$ defined by $T(1)=1$ and
+$$
+T(n) = T(n-1) + n
+$$
+for $n>1$.
+\begin{enumerate}[(a)]
+\item Prove by induction that $T(n) = n(n+1)/2$. [15 points]
+\item Consider the following ``proof'' that $T(n) = O(n)$ (note that this contradicts part (a)):
+
+We proceed by strong induction on $n$. Clearly $T(1)=O(1)$, which gives us our base case. If we assume that $T(n)=O(n)$, then $T(n+1) = T(n)+(n+1) = O(n)+O(n) = O(n)$. This completes our inductive step and proves that $T(n)=O(n)$ for all $n$.
+
+What is wrong with the above proof? (Hint: Consider what the implied constant in the $O$ term would be.) [15 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend working on this homework?
+\end{ques}
+
+\end{document} 

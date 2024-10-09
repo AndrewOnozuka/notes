@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{CSE 101 Homework 4}
+\date{Winter 2023}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope Friday February 24th at 11:59pm on gradescope. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Gameshow Strategy, 75 points]
+Dirk is participating in a gameshow. In this show there are $n$ different challenges. For the $i^{th}$ challenge, Dirk estimates a probability $p_i$ that he can pass the challenge (and this is independent of which other challenges he may have done up to this point or their results) and there is a reward $R_i$ that he will receive if he successfully completes it. Dirk may attempt the challenges in any order he chooses (though may not try any particular challenge more than once), but once he fails a challenge, he must stop and leave with any award money he has won thus far.
+\begin{enumerate}[(a)]
+\item
+Give an $O(n\log(n))$ time algorithm that given the $p_i$ and $R_i$ determines the best order for Dirk to attempt these challenges in. Hint: For any two challenges $A$ and $B$, if Dirk is doing one of them right after the other, which would he rather do first? [40 points]
+\item
+After a rules change, Dirk is allowed to repeat challenges, but is not allowed to compete in more than $k$ of them total, even if he completes all of them successfully. Give an algorithm that given $k$, $p_i$ and $R_i$, runs in $O(kn)$ time and determines which challenges Dirk should attempt in which order so that he maximizes his expected payout. Hint: The answer is not always to do the same challenge $k$ times. Try starting with the last challenge to attempt. [35 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Missing Minimum Weight Edge, 25 points]
+Let $G$ be a weighted graph and $e$ an edge of $G$ of minimum weight. Show that there is a minimum spanning tree of $G$ that does not contain $e$ if and only if there is a cycle $C$ in $G$ containing $e$ consisting only of minimum weight edges.
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend working on this homework?
+\end{ques}
+
+\end{document} 

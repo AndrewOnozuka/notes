@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{CSE 101 Homework 5}
+\date{Winter 2023}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope Friday March 3rd at 11:59pm on gradescope. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Gameshow Again, 30 points]
+Dirk's gameshow from Homework 4 decides to change their rules again. Now Dirk can attempt at most $k$ challenges but \emph{cannot} attempt the same challenge more than once. Give an $O(n\log(n)+kn)$ algorithm to find the strategy that optimizes Dirk's expected winnings. 
+
+Hint: Based on the solution to part (a) from the previous problem you can note that whatever challenges Dirk attempts to try, he should always attempt them in decreasing order of $p_i R_i / (1-p_i)$ (with the order not mattering if there are ties). You can assume this without proof.
+\end{ques}
+
+\begin{ques}[Interval Cover Redux, 30 points]
+Consider the interval cover from before, but with weights assigned to each interval. You are given a collection $C$ of $n$ intervals in the real line, each with an associated positive weight. Your goal is to find a set $S$ of intervals from $C$ so that no two elements of $S$ overlap and so that subject to this, the sum of the weights of these intervals is as large as possible. Give an $O(n \log(n))$ time algorithm for this problem.
+\end{ques}
+
+\begin{ques}[Pitstop Planning, 40 points]
+Jake is a racecar driver. In the current race, he needs to take $n$ laps around the course. Unfortunately, his car's performance slowly gets worse each lap he performs without taking a pitstop. In particular, a lap will take time $T_\ell$ if Jake has gone $\ell$ laps since his last one. Unfortunately, Jake's pit crew has only materials to let him perform at most $k$ pitstops over the course of the race.
+
+Give an $O(kn^2)$ time algorithm to determine which laps Jake should take pitstops in so as to minimize his total time to complete all $n$ laps.
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Where have I been getting the character names for assignments this quarter from?
+\end{ques}
+
+\end{document} 

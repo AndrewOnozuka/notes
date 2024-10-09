@@ -1,0 +1,1 @@
+[Lecture & Practice Playlist](https://youtube.com/playlist?list=PLiY0xVV2ZXVykA3RAzDiRb1rcpVsGjYaR&si=9zgYyx-N9jlbi1Z8)

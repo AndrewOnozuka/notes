@@ -1,0 +1,215 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{booktabs}
+\usepackage[noend]{algpseudocode}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{xcolor}
+\newcommand{\handout}[5]{
+   \renewcommand{\thepage}{}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 6in { {\bf CSE 141: Introduction to Computer Architecture}
+         \hfill #2 }
+       \vspace{4mm}
+       \hbox to 6in { {\Large \hfill #1  \hfill} }
+       \vspace{2mm}
+       \hbox to 6in { {\emph{#3} \hfill #4 \emph{#5}} }
+      }
+   }
+   \end{center}
+   \vspace*{2mm}
+   
+   Name: \underline{\hspace{4cm}}
+  
+   PID: \underline{\hspace{4 cm}}
+   
+   Email: \underline{\hspace{4 cm}}
+}
+
+\newcommand{\homework}[5]{\handout{Homework #1}{#2}{Instructor: #3}{{\bf Due on:} #4}{#5}}
+
+\title{Bibliography management: BibTeX}
+\author{Share\LaTeX}
+
+\begin{document}
+\homework{4}{Spring 2024}{Jishen Zhao} {June 11, 2024}{(66 points)}
+
+\subsection*{Instructions}
+\begin{itemize}
+\item The homework must be submitted to Gradescope by 11:59pm. {Anything later is a late submission}
+\item Handwritten or typed responses are accepted. 
+\item All responses must be neat and legible. Illegible answers will result in zero points.
+\item Provide details on how to reach a solution. An answer without explanation gets no credit. Clearly state all assumptions.
+
+
+
+\end{itemize}
+
+\vspace*{2mm}
+
+
+\begin{enumerate}
+
+\item (14 points) \textbf{Main Memory} 
+
+Following is a system and DIMM description.
+\begin{itemize}
+    \item 2 memory channels
+    \item 2 DIMMS per channel
+    \item Rank: 1
+    \item Chips per rank: 8
+    \item Column Size: 8 bits
+    \item Banks per Chip: 16
+    \item Rows per Bank: 65,536
+    \item Columns per Bank: 1,024
+    \item 8-byte Bus
+\end{itemize}
+
+Answer the following questions based on the given information. \textbf{Specify units wherever applicable and write how you derived your answer.} e.g., ${2^2}\times{2^1}=2^3$
+\begin{enumerate}
+    \item (2 points) How much physical memory is in a single chip?
+    \item (2 points) How much physical memory is in a single DIMM?
+    \item (2 points) How much physical memory is in the whole system?
+    \item (2 points) What is the minimum number of physical address bits needed to address this much memory?
+    \item (6 points) Which portions of the physical address bits are used for column, channel, bank, row, and byte in a bus? Assume that the total number of bits for this question excludes 1 bit to select DIMM. Include only the fields given above. Also, use the row interleaving scheme.
+    \newline
+
+\end{enumerate}
+\\
+
+\item (12 points) \textbf{Virtual Addressing}. 
+This question explores the different parameters in a virtual address scheme.
+Consider a machine with a 40-bit virtual address, 16KB page size, with 4 bytes per page table entry. Assume no protection bits. \textbf{Write how you derived your answer.} e.g., $\frac{2^2}{2^1}=2^1$
+
+Determine the following:
+\begin{enumerate}
+    \item (4 points) What is the number of pages in the virtual address space?
+
+    \item (4 points) What is the maximum size of addressable physical memory in the system?
+
+    \item (4 points) What would be the size of a one-level page table?
+\end{enumerate}
+
+\item (24 points) \textbf{Cache Coherence Protocols}
+
+In this question we will explore different cache coherence protocols, for a processor with 4 cores. You are given a sequence of memory accesses for variable x, and you are to determine the state of the cache line containing x, in each core for the sequence of accesses.
+
+Each subdivision uses a different cache coherence protocol, and this question explores how different protocols affect cache behavior. This question only considers the state of the L1 cache.
+
+\textbf{3.A VI Protocol (8 Points)}
+
+Assume for this part that we use the VI protocol for cache coherence. Fill out the table as specified at the beginning of the question.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Core} & \textbf{Request} & \textbf{C0 Cache} & \textbf{C1 Cache} & \textbf{C2 Cache} & \textbf{C3 Cache} \\
+ & \textbf{Type} & \textbf{Line State} & \textbf{Line State} & \textbf{Line State} & \textbf{Line State} \\
+\hline
+0 & Read $x$ &   &   &   &   \\
+\hline
+1 & Read $x$ &   &   &   &   \\
+\hline
+2 & Read $x$ &   &   &   &   \\
+\hline
+3 & Write $x$ &   &   &   &   \\
+\hline
+1 & Read $x$ &   &   &   &   \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{3.B MSI Protocol (8 Points)}
+
+Assume for this part that we use the MSI protocol for cache coherence. Fill out the table as specified at the beginning of the question.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Core} & \textbf{Request} & \textbf{C0 Cache} & \textbf{C1 Cache} & \textbf{C2 Cache} & \textbf{C3 Cache} \\
+ & \textbf{Type} & \textbf{Line State} & \textbf{Line State} & \textbf{Line State} & \textbf{Line State} \\
+\hline
+0 & Read $x$ &   &   &   &   \\
+\hline
+1 & Read $x$ &   &   &   &   \\
+\hline
+2 & Read $x$ &   &   &   &   \\
+\hline
+3 & Write $x$ &   &   &   &   \\
+\hline
+1 & Read $x$ &   &   &   &   \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{3.C MESI Protocol (8 Points)}
+
+Assume for this part that we use the MESI protocol for cache coherence. Fill out the table as specified at the beginning of the question.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Core} & \textbf{Request} & \textbf{C0 Cache} & \textbf{C1 Cache} & \textbf{C2 Cache} & \textbf{C3 Cache} \\
+ & \textbf{Type} & \textbf{Line State} & \textbf{Line State} & \textbf{Line State} & \textbf{Line State} \\
+\hline
+0 & Read $x$ &   &   &   &   \\
+\hline
+1 & Read $x$ &   &   &   &   \\
+\hline
+2 & Read $x$ &   &   &   &   \\
+\hline
+3 & Write $x$ &   &   &   &   \\
+\hline
+1 & Read $x$ &   &   &   &   \\
+\hline
+\end{tabular}
+\end{center}
+
+\item (16 points) \textbf{Cache Coherence with Memory Subsystem}
+
+In this question, we will explore an implementation of the MESI protocol, in a more complex system, with 4 CPU cores (C0, C1, C2, and C3). Each of those cores has a private 32KB L1 Cache, with 64 byte cacheline size, is 2-way set-associative, and uses write back. All 4 cores share a 512KB L2 cache which has 64 byte cacheline size, and is 8-way set associative.
+
+Similar to question 3, you are given a sequence of memory accesses, and you are to write down the state of each core’s chacheline, for each access.
+Note that the initial state of the cache is given to you, with the first memory access performed, which means this is not a cold start.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Core} & \textbf{Request} & \textbf{Address} & \textbf{C0 L1} & \textbf{C1 L1} & \textbf{C2 L1} & \textbf{C3 L1} \\
+ & \textbf{Type} &  & \textbf{State} & \textbf{State} & \textbf{State} & \textbf{State} \\
+\hline
+0 & Load & 0x00ffabc0 & E & - & - & - \\
+\hline
+0 & Store & 0x00ffabcc &   &   &   &   \\
+\hline
+1 & Load & 0x00ffabd4 &   &   &   &   \\
+\hline
+1 & Store & 0x00ffabd8 &   &   &   &   \\
+\hline
+1 & Load & 0x00afabc0 &   &   &   &   \\
+\hline
+2 & Load & 0x00afabc8 &   &   &   &   \\
+\hline
+1 & Load & 0x00bfabf0 &   &   &   &   \\
+\hline
+0 & Load & 0x00ffabc0 &   &   &   &   \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\end{enumerate}
+
+\end{document}
+

@@ -1,0 +1,223 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{booktabs}
+\usepackage[noend]{algpseudocode}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{xcolor}
+\newcommand{\handout}[5]{
+   \renewcommand{\thepage}{}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 6in { {\bf CSE 141: Introduction to Computer Architecture}
+         \hfill #2 }
+       \vspace{4mm}
+       \hbox to 6in { {\Large \hfill #1  \hfill} }
+       \vspace{2mm}
+       \hbox to 6in { {\emph{#3} \hfill #4 \emph{#5}} }
+      }
+   }
+   \end{center}
+   \vspace*{2mm}
+   
+   Name: \underline{\hspace{4cm}}
+  
+   PID: \underline{\hspace{4 cm}}
+   
+   Email: \underline{\hspace{4 cm}}
+}
+
+\newcommand{\homework}[5]{\handout{Homework #1}{#2}{Instructor: #3}{{\bf Due on:} #4}{#5}}
+
+\title{Bibliography management: BibTeX}
+\author{Share\LaTeX}
+
+\begin{document}
+\homework{3}{Spring 2024}{Jishen Zhao} {May 24, 2024}{(50 points)}
+
+\subsection*{Instructions}
+\begin{itemize}
+\item The homework must be submitted to Gradescope by 11:59pm. {Anything later is a late submission}
+\item Handwritten or typed responses are accepted. 
+\item All responses must be neat and legible. Illegible answers will result in zero points.
+\item Provide details on how to reach a solution. An answer without explanation gets no credit. Clearly state all assumptions.
+
+
+
+\end{itemize}
+
+\vspace*{2mm}
+
+
+\begin{enumerate}
+
+\item \textbf{Instruction Cache. (17 points)}
+
+In this problem, we will be exploring adding an instruction cache to a standard 5-stage pipe-lined processor. We will be using the MIPS assembly program shown below. The first column shows the instruction address for each instruction. Note that these addresses are byte addresses. The value of r1 is initially 32, meaning that there are 32 iterations in the loop. In this problem, we will be considering the execution of this loop with a direct-mapped instruction cache micro-architecture with eight 16-Byte cache lines. This means each cache line can hold four instructions and the bottom four bits of an instruction address are the block offset.
+
+\begin{center}
+\begin{tabular}{lllll}
+\toprule  
+\textbf{Address} & \textbf{Instruction} & \textbf{Iteration 1} & \textbf{Iteration 2} & \textbf{Iteration 3} \\
+\midrule
+&loop:&&&\\
+\midrule
+0x208& \ addiu r1, r1, -1&&&\\
+\midrule
+0x20c& \ addiu r2, r2, 1&&&\\
+\midrule
+0x210& \ addiu r3, r3, 1&&&\\
+\midrule
+0x220& \ j foo&&&\\
+\midrule
+&...&&&\\
+\midrule
+&foo:&&&\\
+\midrule
+0x320& \ addiu r6, r6, 1&&&\\
+\midrule
+0x324& \ bne r1, r0, loop&&&\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\textbf{Question 1.A Categorizing Cache Misses (8 points)}\\
+Fill out the table above. In the appropriate columns, write \textit{compulsory}, \textit{conflict}, or \textit{capacity} next to each instruction that misses in the instruction cache to indicate the type of instruction cache misses that occur in the first, second and third iterations of the loop. Assume that the instruction cache is initially completely empty.
+\begin{itemize}
+    \item \textit{Compulsory misses} occur when a memory access maps to a currently invalid (or empty) cache line or cache set.
+    \item \textit{Conflict misses} occur when multiple memory addresses map to the same cache line or cache set.
+    \item \textit{Capacity misses} occur when the cache is full and can no longer handle further memory access requests or contain the working set of data needed for program execution.
+\end{itemize}
+
+
+
+
+\textbf{Question 1.B Average Memory Access Latency (5 points)}\\
+Calculate the instruction cache miss rate for 32 iterations of the loop. Calculate the average instruction cache memory access latency in cycles for 32 iterations of the loop. Assume the hit time is one cycle and that the miss penalty is 4 cycles. You must show your work, especially the various components of the average memory access latency. Remark on which kind of miss is dominating the average memory access latency.\\
+
+
+\textbf{Question 1.C Set-Associativity (4 points)}\\
+Qualitatively, predict how the cache performance would change if we replace the eight-entry, direct-mapped cache with an eight-entry, two-way, set-associative cache. Both caches have a one-cycle hit latency. Assume the set-associative cache address interleaves the sets across the ways using the least significant bits right after the block offset. What kind of misses would be present with this kind of cache micro-architecture?\\
+
+
+
+
+\item \textbf{Cache Mapping and Access (21 points)} 
+
+Consider a 1024-KByte cache with 32-word cachelines (a cacheline is also known as a cache block, each word is 4-Bytes). This cache uses write-back scheme, and the address is 32 bits wide. Clearly show your calculations to receive full marks. \\
+
+\textbf{Question 2.A Direct-Mapped, Cache Fields (3 points)}\\
+Assume the cache is direct-mapped. Fill in the table below to specify the size of each address field.\\
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule  
+\textbf{Field} & \textbf{ Size (bits)} \\
+\midrule  
+Cacheline Offset& \\
+\midrule
+Cacheline Index& \\
+\midrule
+Tag& \\
+\bottomrule 
+\end{tabular}
+\end{center}
+
+
+\textbf{Question 2.B Fully-Associative, Cache Fields (3 points)}\\
+Assume the cache is fully-associative. Fill in the table below to specify the size of each address field.\\
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule  
+\textbf{Field} & \textbf{ Size (bits)} \\
+\midrule  
+Cacheline Offset& \\
+\midrule
+Cacheline Index& \\
+\midrule
+Tag& \\
+\bottomrule 
+\end{tabular}
+\end{center}
+
+
+\textbf{Question 2.C 8-Way Set-Associative, Cache Fields (3 point)}\\
+Assume the cache is 8-way set-associative. Fill in the table below to specify the size of each address field.\\
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule  
+\textbf{Field} & \textbf{ Size (bits)} \\
+\midrule  
+Cacheline Offset& \\
+\midrule
+Cacheline Index& \\
+\midrule
+Tag& \\
+\bottomrule 
+\end{tabular}
+\end{center}
+
+
+\textbf{Question 2.D Tag Overhead (12 points)}\\
+(i) What is the tag overhead and total size of the direct-mapped cache? \\
+Considering the following conditions:\\
+a. Tag overhead includes the valid bit and tag bits\\
+b. Tag overhead includes the valid bit and the dirty bit as well as tag bits\\
+
+
+(ii) What is the tag overhead and total size of the 8-way set-associative cache?\\
+Considering the following conditions:\\
+a. Tag overhead includes the valid bit and tag bits\\
+b. Tag overhead includes the valid bit, the dirty bit, and tag bits\\
+
+
+\item \textbf{Average Memory Access Time (12 points)} \\
+Considered two pipelined machines A and B, are described in the table below.
+ \begin{center}
+\begin{tabular}{ccc}
+\toprule  
+\textbf{Property} & \textbf{ Computer A} & \textbf{ Computer B}  \\
+\midrule  
+ISA & MIPS & x86\\
+\midrule
+Clock Frequency & 3 GHz & 4 GHz\\
+\midrule
+Base CPI & 2 cycles/instruction & 3 cycles/instruction\\
+\midrule
+L1 Instruction Cache Hit Time & 1 cycle & 1 cycle\\
+\midrule
+L1 Instruction Cache Miss Rate & 4\%  & 4\% \\
+\midrule
+L1 Data Cache Hit Time & 1 cycle & 2 cycles\\
+\midrule
+L1 Data Cache Miss Rate & 8\%  & 5\% \\
+\midrule
+Main Memory Access Time & 200 cycles  & 250 cycles \\
+\bottomrule 
+\end{tabular}
+\end{center}
+
+\textbf{Question 3.A Ideal System (6 points)}\\
+Assume a perfect memory system (100\% of memory accesses hit in the L1 caches) and perfect branch prediction. Assume that MIPS programs execute 1.3x as many instructions as x86 programs. \\
+Which machine has the faster execution time, and what is the speedup?\\
+
+
+\textbf{Question 3.B  No L2 Cache (6 points)}\\
+Now assume each machine has only L1 caches (split iL1 cache and dL1 cache), no L2 cache, perfect branch prediction, and that 25\% of the instructions are loads/stores. \\
+Which machine has the faster execution time, and what is the speedup?\\
+
+
+\end{enumerate}
+\end{document}

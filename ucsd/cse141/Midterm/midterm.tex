@@ -1,0 +1,246 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{color}
+\usepackage[table,xcdraw]{xcolor}
+\newcommand{\handout}[5]{
+   \renewcommand{\thepage}{}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 6in { {\bf CSE 141: Introduction to Computer Architecture}
+         \hfill #2 }
+       \vspace{4mm}
+       \hbox to 6in { {\Large \hfill #1  \hfill} }
+       \vspace{2mm}
+       \hbox to 6in { {\emph{#3} \hfill #4 \emph{#5}} }
+      }
+   }
+   \end{center}
+   \vspace*{2mm}
+   
+   Name: \underline{\hspace{4cm}}
+  
+   PID: \underline{\hspace{4 cm}}
+   
+   Email: \underline{\hspace{4 cm}}
+}
+
+
+
+\newcommand{\homework}[5]{\handout{Midterm Examination}{#2}{Instructor: #3}{{\bf Due on:} #4}{#5}}
+
+\begin{document}
+\homework{1}{Spring 2024}{Jishen Zhao} {May 3, 2024 @ 11:59PM}{(48 points)}
+
+\begin{table}[!hbpt]
+    \centering  
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Q1             & 4           &      \hspace{2cm}     \\ \hline
+    Q2             & 6           &           \\ \hline
+    Q3             & 8           &           \\ \hline
+    Q4             & 14          &           \\ \hline
+    Q5             & 16          &           \\ \hline
+    \textbf{Total} & \textbf{48} & \textbf{} \\ \hline
+    \end{tabular}
+\end{table}
+
+“While taking this examination, I have not witnessed any wrongdoing, nor have I personally violated any conditions of this course’s integrity policy.” \\ \\ 
+If you can honestly attest to the statement above, \textbf{write “I excel with Integrity” below and sign.} \\ \\
+If you do not write and sign, the instructor will contact you by e-mail to request you clarify/explain. \\ \\
+
+\noindent\rule{12cm}{0.4pt} \\
+
+\noindent Signature: 
+
+\subsection*{Instructions:}
+    \begin{itemize}
+    \item This exam is open book and open notes. Show your work and insert your answer in the space(s) provided. Please provide details on how you reach a result unless directed by the question as not to. 
+    \item The exam totals 48 points. It counts for 24\% of your course grade. Please submit answers to the following questions as a PDF via Gradescope by May 3, 2024 at 11:59 PM. Policy of late submissions is the same homework assignments. Handwritten or typed responses are accepted.
+
+    \end{itemize}
+
+
+\pagebreak
+
+\begin{enumerate}
+    \item[\textbf{Q1}]{\textbf{(4 points)}: 
+        Single choice and short answer questions. \\
+        \begin{enumerate}
+            \item[\textbf{1A)}]{What is the primary problem when dealing with branches (such as beq and bne in MIPS) in pipeline designs? \rule{3cm}{0.4pt} (Single choice, no further explanation needed)
+                \begin{enumerate}
+                    \item {You need to fetch an instruction after the branch before knowing the branch outcome}
+                    \item {Calculating if the branch should be taken or not taken complicates the design of the Execute (or ALU) stage}
+                    \item {You can have a branch dependent on a value loaded from memory which delays completing the branch}
+                    \item {Trick question -- branches pose no more problem than any non-branch instruction for a pipeline.}
+                \end{enumerate}
+            }
+            \item[\textbf{1B)}]{A program P has an instruction count of 10 billion, an average CPI of 3, and runs on a processor with a clock rate of 2 GHZ. What is the execution time for program P? \\\rule{3cm}{0.4pt} (No further explanation needed)}
+        \end{enumerate}
+    }
+    \item[\textbf{Q2}]{\textbf{(6 points)}: 
+        We have a program with 30 billion instructions that takes 45 seconds to run on a 2GHz machine. It is given that the program consists of 25\% branch instructions, and the CPI of branch instructions is 4.
+         \begin{enumerate}
+            \item[\textbf{2A)}]{What is the average CPI of the program?}
+            \vspace{2cm}
+            \item[\textbf{2B)}]{Using a newly developed compiler, the recompiled program now uses 20 billion instructions. It is still composed of 25\% branch instructions, but the CPI of the branch instructions has been reduced by a factor of 2 (CPI of the other types of instructions remains the same). What is the expected execution time speedup of the new program over the original program (on the same machine)?}
+            \vspace{4cm}
+         \end{enumerate}
+    }
+    \item[\textbf{Q3}]{\textbf{(16 points):}
+        Given the following assembly code:
+        \begin{verbatim}
+L3:	addu R7, R4, R3  
+    lw R7, (R7)    
+    addu R8, R5, R3 
+    lw R8, (R8) 
+    mul R7, R7, R8 
+    addu R2, R2, R7 
+    addiu R3, R3, #4 
+    bne R3, R6, L3
+        \end{verbatim}
+        Where registers are written as R(reg number), e.g., R1. \\
+        
+        In a non-pipelined CPU with the following instruction categories and execution latencies: \\ 
+        
+        % Please add the following required packages to your document preamble:
+        % \usepackage[table,xcdraw]{xcolor}
+        % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+        \begin{table}[!hbpt]
+            \centering
+            \begin{tabular}{|c|c|}
+                \hline
+                \textbf{Instruction} & \textbf{Latency (Cycles)} \\ \hline
+                add (addu, addiu)    & 4                         \\ \hline
+                load (lw)            & 8                         \\ \hline
+                multiply (mul)       & 20                        \\ \hline
+                branch (bne)         & 10                        \\ \hline
+            \end{tabular}
+        \end{table}
+        
+        \begin{enumerate}
+            \item[\textbf{3A)}]{\textbf{(4 points)} What is the CPI of the loop for one iteration (the bne instruction included)?}
+            \vspace{4cm}
+            \item[\textbf{3B)}]{\textbf{(4 points)} Which of the following optimizations would produce a bigger CPI improvement for one iteration (the bne instruction included)?
+                \begin{enumerate}
+                    \item Implement prefetching to reduce the latency of loads from 8 cycles to 6 cycles.
+                    \item Implement branch prediction to reduce the latency of branch instructions from 10 cycles to 3 cycles.
+                \end{enumerate}
+            }
+            \vspace{4cm}
+            \item[\textbf{3C)}]{\textbf{(8 points)} How many cycles will one iteration through the loop take? Please fill in the provided pipeline diagram (with D in the stall cycles and arrows showing where bypassing is taking place). \\ \\
+                Assumptions:
+                \begin{itemize}
+                    \item The pipeline is an in-order pipeline, i.e., no out-of-order execution
+                    \item	The pipeline stalls on true data dependencies that cannot be bypassed (i.e., all kinds of data bypassing are available).
+                    \item 	The pipeline also stalls if a structural hazard would occur.
+                    \item 	mult has 4 pipelined execution stages P1, P2, P3, P4, which takes 4 cycles in total; add has a 1-cycle eXecution stage. mult and add use different ALUs. 
+                    \item 	mult does not have M stage; all other instructions have M stage.
+                    \item 	bne comparison is done in the Decode stage.
+                \end{itemize}
+                
+                % Please add the following required packages to your document preamble:
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+\begin{table}[!hbpt]
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|l|l|l|}
+\hline
+                    & \multicolumn{1}{l|}{1} & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{4} & \multicolumn{1}{l|}{5} & \multicolumn{1}{l|}{6} & \multicolumn{1}{l|}{7} & \multicolumn{1}{l|}{8} & \multicolumn{1}{l|}{9} & \multicolumn{1}{l|}{10} & \multicolumn{1}{l|}{11} & \multicolumn{1}{l|}{12} & \multicolumn{1}{l|}{13} & \multicolumn{1}{l|}{14} & \multicolumn{1}{l|}{15} & \multicolumn{1}{l|}{16} & \multicolumn{1}{l|}{17} & 18 & 19 & 20 \\ \hline
+L3: addu R7, R4, R3 &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+lw R7, (R7)         &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+addu R8, R5, R3     &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+lw R8, (R8)         &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+mul R7, R7, R8      &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+addu R2, R2, R7     &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+addiu R3, R3, \#4   &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+bne R3, R6, L3      &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+\end{tabular}
+\end{table}
+            }
+        \end{enumerate}
+    }
+    \item[\textbf{Q4}]{\textbf{(10 points):} Branch prediction \\ \\
+        For the following questions, assume a branch outcome of
+            \begin{center}
+                T T N N N T T N N N T T N N N …
+            \end{center}
+        T = taken, N = not-taken
+        \begin{enumerate}
+            \item[\textbf{4A)}]{Fill in the table below to determine the prediction accuracy of a 1-bit prediction scheme, where the initial state is not taken. Use a * in the “Incorrect” row (as shown below) to indicate when the Prediction \textbf{incorrectly} predicts the branch outcome, while leaving the entry blank if it is a correct prediction. \\
+            
+            \begin{table}[!hbpt]
+                \centering
+                \begin{tabular}{|l|c|c|c|c|l|c|c|c|c|c|c|c|c|c|c|c|}
+                \hline
+                \begin{tabular}[c]{@{}l@{}}Branch\\ Outcome\end{tabular} & T & T & N & N & N & T & T & N & N & N & T & T & N & N & N & ... \\ \hline
+                State                                                    & N &   &   &   &   &   &   &   &   &   &   &   &   &   &   &     \\ \hline
+                Prediction                                               & N &   &   &   &   &   &   &   &   &   &   &   &   &   &   &     \\ \hline
+                Incorrect                                                & / &   &   &   &   &   &   &   &   &   &   &   &   &   &   &     \\ \hline
+                \end{tabular}
+            \end{table}
+            
+            What is the steady state prediction accuracy in percentage? 
+            \vspace{2cm}
+            
+            }
+            \item[\textbf{4B)}]{Fill in the table below to determine the prediction accuracy of a 2-bit, saturating counter prediction scheme where the initial prediction state is strongly not taken (N)? Use a * in the “Incorrect” row (as shown below) to indicate when the Prediction \textbf{incorrectly} predicts the branch outcome, while leaving the entry blank if it is a correct prediction. 
+            \begin{table}[!hbpt]
+                \centering
+                \begin{tabular}{|l|c|c|c|c|l|c|c|c|c|c|c|c|c|c|c|c|}
+                \hline
+                \begin{tabular}[c]{@{}l@{}}Branch\\ Outcome\end{tabular} & T & T & N & N & N & T & T & N & N & N & T & T & N & N & N & ... \\ \hline
+                State                                                    & N &   &   &   &   &   &   &   &   &   &   &   &   &   &   &     \\ \hline
+                Prediction                                               & N &   &   &   &   &   &   &   &   &   &   &   &   &   &   &     \\ \hline
+                Incorrect                                                & / &   &   &   &   &   &   &   &   &   &   &   &   &   &   &     \\ \hline
+                \end{tabular}
+            \end{table}
+            
+            What is the steady state prediction accuracy in percentage? 
+            \vspace{2cm}
+            }
+        \end{enumerate}
+    }
+    \item[\textbf{Q5}]{\textbf{(12 points):}Pipelining \\ \\
+        Assume the following program is running on the 5-stage in-order pipeline processor shown in class. All registers are initialized to 0. Assuming only WX and WD (register file internal forwarding) forwarding, branches are resolved in \textbf{Decode} stage, and branches are always predicted \textbf{not-taken}. How many cycles will it take to execute the program, if the branch outcome is \textbf{actually taken}? Draw a pipeline diagram (table) to show the details of your work. Use arrows to indicate forwarding.
+        
+        \begin{verbatim}
+        lw $r6 0($r10)
+        lw $r7 0($r11)
+        add $r2 $r6 $r7
+        beq $r2 $r3 label
+        sub $r6 $r8 $r4
+        sw $r6 0($r10)
+label: 	lw $r1 0($r2)
+        or $r4 $r2 $r1
+        \end{verbatim}
+        
+        \begin{table}[!hbpt]
+            \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|l|l|l|}
+            \hline
+                                 & \multicolumn{1}{l|}{1} & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{4} & \multicolumn{1}{l|}{5} & \multicolumn{1}{l|}{6} & \multicolumn{1}{l|}{7} & \multicolumn{1}{l|}{8} & \multicolumn{1}{l|}{9} & \multicolumn{1}{l|}{10} & \multicolumn{1}{l|}{11} & \multicolumn{1}{l|}{12} & \multicolumn{1}{l|}{13} & \multicolumn{1}{l|}{14} & \multicolumn{1}{l|}{15} & \multicolumn{1}{l|}{16} & \multicolumn{1}{l|}{17} & 18 & 19 & 20 \\ \hline
+            lw \$r6 0(\$r10)       &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+            lw \$r7 0(\$r11)       &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+            add \$r2 \$r6 \$r7     &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+            beq \$r2 \$r3 label    &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+            sub \$r6 \$r8 \$r4     &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+            sw \$r6 0(\$r10)       &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+            label: lw \$r1 0(\$r2) &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+            or \$r4 \$r2 \$r1      &                        &                        &                        &                        &                        &                        &                        &                        &                        &                         &                         &                         &                         &                         &                         &                         &                         &    &    &    \\ \hline
+            \end{tabular}
+        \end{table}
+        
+    }
+\end{enumerate}
+
+
+\end{document}

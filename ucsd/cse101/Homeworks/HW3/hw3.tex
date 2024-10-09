@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{CSE 101 Homework 3}
+\date{Winter 2023}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope Friday February 10th at 11:59pm on gradescope. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Road Trip on a Budget, 30 points]
+Jane is planning a road trip from city $s$ to city $t$. She has a map of the relevant country given as a directed graph $G$ with $s$ and $t$ as vertices. Each edge of the graph has an associated monetary cost which must be paid to cross the edge, however, by working as a part time courier, some of these costs are negative (though you may assume that $G$ has no negative weight cycles). Jane wants to ensure that she has at least $m$ dollars on her when she reaches $t$ and she knows that she can never allow her bank balance to go negative during the trip. Give an algorithm that given $G,m,s,t$ and the edge weights, computes the least amount of money that Jane would need to have at the start of her trip in order to make this happen. For full credit, your algorithm should run in time $O(|V||E|)$ or better.
+\end{ques}
+
+\begin{ques}[Inversion Counting, 30 points]
+Given an array $A$ of real numbers an \emph{inversion} is a pair of indices $i<j$ where $A[i] > A[j]$. Give an algorithm that computes the number of inversions in such an array $A$. For full credit, your algorithm should run in time $O(n\log(n))$ or better where $n$ is the number of elements in $A$.
+\end{ques}
+
+\begin{ques}[Other Runtime Recurrences, 40 points]
+The Master Theorem tells us that if a divide and conquer algorithm on an input of size $n$ needs to make finitely many recursive calls on inputs whose sizes are a constant factor smaller than $n$ on top of a polynomial amount of overhead, then the runtime of the full algorithm is polynomial. Here we see what happens if one has other kinds of recurrences. In all of the following, we assume a base case of $T(1)=1$. Note that here $T(n)$ is polynomial if it is $O(n^k)$ for some $k$, and super-polynomial if this is not the case for any $k$.
+\begin{enumerate}[(a)]
+\item If $T(n) = \sqrt{n} T(\lfloor n/2 \rfloor)$ for $n>1$, show that $T(n)$ is superpolynomial. [10 points]
+\item If $T(n) = T(n - \lfloor \sqrt{n} \rfloor) + T(\lfloor n/2 \rfloor)$ for $n>1$, show that $T(n)$ is superpolynomial. [10 points]
+\item If $T(n) = n^9 T(\lfloor n^{0.9} \rfloor)$ for $n>1$, show that $T(n)$ is polynomial. [10 points]
+\item If $T(n) = T(\lfloor n^{0.9} \rfloor) + T(n-\lfloor n^{0.9} \rfloor)$ for $n>1$, show that $T(n)$ is polynomial. [10 points]
+\end{enumerate}
+If you are proving any of this using induction be sure to be careful not to fall into the trap discussed in Homework 0 problem 4.
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend working on this homework?
+\end{ques}
+
+\end{document} 
