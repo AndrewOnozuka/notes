@@ -8,7 +8,18 @@ module down_counter    // Module start declaration
     output logic[WIDTH-1:0] count
  );
 
- // Student to add code for down counter logic
+ // Local variable declaration
+ logic[WIDTH-1:0] cnt_value;
+  
+ // always procedural block describing down counter behavior
+ always @(posedge clk or posedge clear) 
+   begin
+     if (clear == 1)
+       cnt_value = 0;
+     else 
+       cnt_value = cnt_value - 1;
+   end
 
- 
+ // Counter value assigned to output port count  
+ assign count = cnt_value;
 endmodule: down_counter  // Module end declaration

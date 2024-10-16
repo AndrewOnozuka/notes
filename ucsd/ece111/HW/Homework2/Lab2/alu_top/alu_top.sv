@@ -8,13 +8,16 @@ module alu_top // Module start declaration
 );
 
   // Local net declaration
-  logic[(2*N):0] alu_out; 
+  logic[(2*N):0] alu_out;
 
   // Student to Add instantiation of module alu
- 
+  alu #(.N(N)) alu_inst (
+      .operand1(operand1),    // Connect operand1 from alu_top to alu
+      .operand2(operand2),    // Connect operand2 from alu_top to alu
+      .operation(select),     // Connect select to operation in ALU
+      .alu_out(alu_out)       // Connect ALU output to local net alu_out
+    );
 
-
-  
   // Adding flipflop at the output of ALU
   always@(posedge clk or posedge reset) begin
     if(reset == 1) begin
