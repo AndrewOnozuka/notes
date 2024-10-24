@@ -24,12 +24,44 @@ module universal_shift_register (
        // PIPO Mode of Shift Register
        3'b000 : begin 
                   shift_reg <= din;  
-		  sout <= 1'b0;
+		              sout <= 1'b0;
                 end
 
-       // student to fill code for SIPO-L, SIPO-R, PISO-L, PISO-R, SISO-L, SISO-R operation mode of shift register
-       // Note : Use non-blocking assignment statements within case item expressions
+       // SIPO-L Mode (Serial-In Parallel-Out, Left Shift)
+       3'b001 : begin
+                  shift_reg <= {shift_reg[2:0], sin};  // Shift left and load serial input to LSB
+                  sout <= 1'b0;
+                end
 
+       // SIPO-R Mode (Serial-In Parallel-Out, Right Shift)
+       3'b010 : begin
+                  shift_reg <= {sin, shift_reg[3:1]};  // Shift right and load serial input to MSB
+                  sout <= 1'b0;
+                end
+
+       // PISO-L Mode (Parallel-In Serial-Out, Left Shift)
+       3'b011 : begin
+                  sout <= shift_reg[3];                // Output MSB as serial output
+                  shift_reg <= {shift_reg[2:0], 1'b0}; // Shift left and insert '0' in LSB
+                end
+
+       // PISO-R Mode (Parallel-In Serial-Out, Right Shift)
+       3'b100 : begin
+                  sout <= shift_reg[0];                // Output LSB as serial output
+                  shift_reg <= {1'b0, shift_reg[3:1]}; // Shift right and insert '0' in MSB
+                end
+
+       // SISO-L Mode (Serial-In Serial-Out, Left Shift)
+       3'b101 : begin
+                  sout <= shift_reg[3];                // Output MSB as serial output
+                  shift_reg <= {shift_reg[2:0], sin};  // Shift left and load serial input to LSB
+                end
+
+       // SISO-R Mode (Serial-In Serial-Out, Right Shift)
+       3'b110 : begin
+                  sout <= shift_reg[0];                // Output LSB as serial output
+                  shift_reg <= {sin, shift_reg[3:1]};  // Shift right and load serial input to MSB
+                end
 
        default : begin 
                    shift_reg <= 4'b0000;
