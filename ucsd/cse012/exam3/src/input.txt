@@ -1,0 +1,11 @@
+Sangeetha,A,85
+Alex,B,87
+Derek,A,93
+Charles,C,67
+Peter,C,70
+Tina,C,50
+James,A,94
+Dia,B,30
+Ria,B,88
+Micheal,A,80
+Sasha,A,85
