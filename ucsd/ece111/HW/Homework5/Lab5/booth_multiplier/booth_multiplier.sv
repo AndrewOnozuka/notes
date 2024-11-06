@@ -44,9 +44,10 @@ enum logic[2:0]{
 //has same length as add_operand1 and add_operand2
 // Tie CIN to '0'
 carry_lookahead_adder #(.N(N+1)) adder_inst(
-
-  // Student to add code
-
+  .A(add_operand1),
+  .B(add_operand2),
+  .CIN(1'b0),
+  .result(sum)
 );
 
 // Create negative multiplicand value
@@ -63,99 +64,81 @@ always_ff@(posedge clock, posedge reset) begin
                 load_reg_pos <= 0;
 		load_reg_neg <= 0;
                 shift_reg <= 0;
-        end
-        else begin
-        case(next_state)
-        // Wait for start signal
-	IDLE: begin
-		
-             // Sudent to add code here
+        end else begin
+                case(next_state)
+                        // Wait for start signal
+                        IDLE: begin
+                                if (start) begin
+                                        next_state <= INITIALIZE;
+                                end
+                        end
 
-	end
+                // Load Multiplicand and Multiplier in a load register and a shift register
+                INITIALIZE: begin
+                        // load multiplicand to load_reg_pos
+                        load_reg_pos <= multiplicand;
+                        // load multiplicand_neg[N:0] to load_reg_neg
+                        load_reg_neg <= multiplicand_neg[N:0];
+                        shift_reg 	<= {1'b0, {N{1'b0}}, multiplier, 1'b0};
+                        next_state 	<= TEST;
+                        count		<= 0;	
+                end
 
-	// Load Multiplicand and Multiplier in a load register and a shift register
-        INITIALIZE: begin
-                // load multiplicand to load_reg_pos
-                // Student to Add Code Here
+                // Check shift register LSB and based on that perform ADD/Shift operation
+                // if last 2 LSB='01' then perform ADD with positive multiplicand followed by Right Shift by 1
+                // if last 2 LSB='10' then perform ADD with negative multiplicand followed by Right Shift by 1
+                // if last 2 LSB='00' then perform Right Shift by 1
+                // if last 2 LSB='11' then perform Right Shift by 1
+                TEST: begin
+                        if(shift_reg[1:0] == 2'b01) begin
+                                // Pass positive Multiplicand to carry lookadahead adder input
+                                add_operand1 <= load_reg_pos;    
+                                // Pass previous adder output value after shift to add with Multiplicand
+                                add_operand2 <= shift_reg[(2*N)+1:N];
+                                // move to add state
+                                next_state <= ADD;
 
+                        end else if(shift_reg[1:0] == 2'b10) begin
+                                // Pass negative Multiplicand to carry lookadahead adder input
+                                add_operand1 <= load_reg_neg;  
+                                // Pass previous adder output value after shift to add with Multiplicand
+                                add_operand2 <= shift_reg[(2*N)+1:N]; 
+                                // move to add state
+                                next_state <= ADD;
 
-                // load multiplicand_neg[N:0] to load_reg_neg
-                // Student to Add Code Here
+                        end else begin
+                                // assign add_operand1 to 0, Since no add operation to be perform pass 0 to carry lookadder input
+                                add_operand1 <= 0;
+                                // Pass previous adder output value after shift to add with Multiplicand
+                                add_operand2 <= shift_reg[(2*N)+1:N];   
+                                // move to shift and increment count state
+                                next_state <= SHIFT_AND_COUNT;
+                        end
+                end
 
+                ADD: begin
+                        shift_reg <= {sum, shift_reg[N:0]}; // Load shift register : Output sum from Adder which includes carry and retain previous lower bit of shift register
+                        // Move to shift and increment count state
+                        next_state <= SHIFT_AND_COUNT;
+                end
 
-		shift_reg 	<= {1'b0, {N{1'b0}}, multiplier, 1'b0};
-		next_state 	<= TEST;
-		count		<= 0;	
-	end
+                SHIFT_AND_COUNT: begin
+                        shift_reg <= (shift_reg >>> 1); // Right Arithmetic shift entire shift register by 1 position
+                        
+                        // Increment count
+                        count <= count + 1;
 
-	// Check shift register LSB and based on that perform ADD/Shift operation
-        // if last 2 LSB='01' then perform ADD with positive multiplicand followed by Right Shift by 1
-        // if last 2 LSB='10' then perform ADD with negative multiplicand followed by Right Shift by 1
-        // if last 2 LSB='00' then perform Right Shift by 1
-        // if last 2 LSB='11' then perform Right Shift by 1
-	TEST: begin
-		if(shift_reg[1:0] == 2'b01) begin
-	             // Pass positive Multiplicand to carry lookadahead adder input
-		     // Pass previous adder output value after shift to add with Multiplicand
-	             // move to add state
- 
-                     // Student to Add code
+                        if(count == N-1) begin // If 'N' times SHIFT operation performed then move to Done state else go back to Test state
+                                next_state <= DONE;
+                        end else begin
+                                next_state <= TEST;
+                        end
+                end
 
-
-		end
-		else if(shift_reg[1:0] == 2'b10) begin
-       		     // Pass negative Multiplicand to carry lookadahead adder input
-                     // Pass previous adder output value after shift to add with Multiplicand
-                     // move to add state
-
-                     // Student to Add code
-
-
-		end
-		else begin
-                      // assign add_operand1 to 0, Since no add operation to be perform pass 0 to carry lookadder input
-                      // Pass previous adder output value after shift to add with Multiplicand	
-		      // move to shift and increment count state
-
-
-                       // Student to Add code
-
-		end
-	end
-
-	ADD: begin
-		shift_reg <= {sum, shift_reg[N:0]}; // Load shift register : Output sum from Adder which includes carry and retain previous lower bit of shift register
-                
-                // Move to shift and increment count state
-                // Student to Add code here
-
-
-
-	end
-
-	SHIFT_AND_COUNT: begin
-                shift_reg <= (shift_reg >>> 1); // Right Arithmetic shift entire shift register by 1 position
-                
-                // Increment count
-                // Student to Add code here
-
-
-                if(count == N-1) begin // If 'N' times SHIFT operation performed then move to Done state else go back to Test state
-                
-                    // Student to Add code here
-	
-               	end
-              	else begin
-               		
-                    // Student to Add code here
-
-            	end
-      	end
-
-     	DONE: begin
-       		next_state <= IDLE; // Wait for right shift value to be available. This is the final product value.
-     	end
-	endcase
+                DONE: begin
+                        next_state <= IDLE; // Wait for right shift value to be available. This is the final product value.
+                end
+                endcase
 	end
 end
 
@@ -163,7 +146,9 @@ end
 assign done = (next_state == DONE) ? 1 : 0;
 
 // Generate Product in DONE state by loading shift_reg value to it
-assign product = (next_state == DONE) ? {shift_reg[(2*N)], shift_reg[(2*N):1]} : 0;
+// assign product = (next_state == DONE) ? {shift_reg[(2*N)], shift_reg[(2*N):1]} : 0;
+assign product = (next_state == DONE) ? shift_reg[(2*N)-1:0] : 0;
+
 
 endmodule: booth_multiplier
 
