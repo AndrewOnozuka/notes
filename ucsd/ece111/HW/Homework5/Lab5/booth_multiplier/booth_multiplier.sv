@@ -78,7 +78,7 @@ always_ff@(posedge clock, posedge reset) begin
                         // load multiplicand to load_reg_pos
                         load_reg_pos <= multiplicand;
                         // load multiplicand_neg[N:0] to load_reg_neg
-                        load_reg_neg <= multiplicand_neg[N:0];
+                        load_reg_neg <= multiplicand_neg;
                         shift_reg 	<= {1'b0, {N{1'b0}}, multiplier, 1'b0};
                         next_state 	<= TEST;
                         count		<= 0;	
@@ -94,7 +94,7 @@ always_ff@(posedge clock, posedge reset) begin
                                 // Pass positive Multiplicand to carry lookadahead adder input
                                 add_operand1 <= load_reg_pos;    
                                 // Pass previous adder output value after shift to add with Multiplicand
-                                add_operand2 <= shift_reg[(2*N)+1:N];
+                                add_operand2 <= shift_reg[(2*N):N];
                                 // move to add state
                                 next_state <= ADD;
 
@@ -102,7 +102,7 @@ always_ff@(posedge clock, posedge reset) begin
                                 // Pass negative Multiplicand to carry lookadahead adder input
                                 add_operand1 <= load_reg_neg;  
                                 // Pass previous adder output value after shift to add with Multiplicand
-                                add_operand2 <= shift_reg[(2*N)+1:N]; 
+                                add_operand2 <= shift_reg[(2*N):N]; 
                                 // move to add state
                                 next_state <= ADD;
 
@@ -110,7 +110,7 @@ always_ff@(posedge clock, posedge reset) begin
                                 // assign add_operand1 to 0, Since no add operation to be perform pass 0 to carry lookadder input
                                 add_operand1 <= 0;
                                 // Pass previous adder output value after shift to add with Multiplicand
-                                add_operand2 <= shift_reg[(2*N)+1:N];   
+                                add_operand2 <= shift_reg[(2*N):N];   
                                 // move to shift and increment count state
                                 next_state <= SHIFT_AND_COUNT;
                         end
