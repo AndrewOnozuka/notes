@@ -96,16 +96,16 @@ always_ff@(posedge clock, posedge reset) begin
 	             // Pass positive Multiplicand to carry lookadahead adder input
 		     // Pass previous adder output value after shift to add with Multiplicand
 	             // move to add state
-                        add_operand1 <= shift_reg[(2*N):N+1];  // Previous value of the shift register
-                        add_operand2 <= load_reg_pos;          // Positive multiplicand
+                        add_operand1 <= load_reg_pos;          
+                        add_operand2 <= shift_reg[(2*N):N+1];  
                         next_state <= ADD;
 		end
 		else if(shift_reg[1:0] == 2'b10) begin
        		     // Pass negative Multiplicand to carry lookadahead adder input
                      // Pass previous adder output value after shift to add with Multiplicand
                      // move to add state
-                        add_operand1 <= shift_reg[(2*N):N+1];  // Previous value of the shift register
-                        add_operand2 <= load_reg_neg;          // Negative multiplicand
+                        add_operand1 <= load_reg_neg;          
+                        add_operand2 <= shift_reg[(2*N):N+1]; 
                         next_state <= ADD;
 
 		end
@@ -113,8 +113,8 @@ always_ff@(posedge clock, posedge reset) begin
                       // assign add_operand1 to 0, Since no add operation to be perform pass 0 to carry lookadder input
                       // Pass previous adder output value after shift to add with Multiplicand	
 		      // move to shift and increment count state
-                        add_operand1 <= {(N+1){1'b0}};         // No addition operation
-                        add_operand2 <= shift_reg[(2*N):N+1];  // Previous value remains
+                        add_operand1 <= {(N+1){1'b0}};         
+                        add_operand2 <= shift_reg[(2*N):N+1];  
                         next_state <= SHIFT_AND_COUNT;
 
 		end
