@@ -63,13 +63,104 @@ always_ff@(posedge clk) begin
 	    // for each databit to get midpoint count value is 16
 	    // counting starts from midpoint of previous bit and ends at midpoint
 	    // of current data bit
-          // Student to fill rest of the code
 
+      // Capture first data bit at midpoint
+        if (count == NUM_CLKS_PER_BIT-1) begin
+            dout[0] <= rx;  // Capture rx as the first data bit
+            count <= 0;
+            state <= RX_DATA_BIT1;
+        end else begin
+            count <= count + 1;
+        end
 	end
-       
-        // Student to fill rest of the code for all remaining data bits state, stop bit state and default state
+      RX_DATA_BIT1: begin
+        if (count == NUM_CLKS_PER_BIT-1) begin
+          dout[1] <= rx;  // Capture rx as the second data bit
+          count <= 0;
+          state <= RX_DATA_BIT2;
+        end else begin
+          count <= count + 1;
+        end
+      end
 
+      RX_DATA_BIT2: begin
+        if (count == NUM_CLKS_PER_BIT-1) begin
+          dout[2] <= rx;  // Capture rx as the third data bit
+          count <= 0;
+          state <= RX_DATA_BIT3;
+        end else begin
+          count <= count + 1;
+        end
+      end
 
+      RX_DATA_BIT3: begin
+        if (count == NUM_CLKS_PER_BIT-1) begin
+          dout[3] <= rx;  // Capture rx as the fourth data bit
+          count <= 0;
+          state <= RX_DATA_BIT4;
+        end else begin
+          count <= count + 1;
+        end
+      end
+
+      RX_DATA_BIT4: begin
+        if (count == NUM_CLKS_PER_BIT-1) begin
+          dout[4] <= rx;  // Capture rx as the fifth data bit
+          count <= 0;
+          state <= RX_DATA_BIT5;
+        end else begin
+          count <= count + 1;
+        end
+      end
+
+      RX_DATA_BIT5: begin
+        if (count == NUM_CLKS_PER_BIT-1) begin
+          dout[5] <= rx;  // Capture rx as the sixth data bit
+          count <= 0;
+          state <= RX_DATA_BIT6;
+        end else begin
+          count <= count + 1;
+        end
+      end
+
+      RX_DATA_BIT6: begin
+        if (count == NUM_CLKS_PER_BIT-1) begin
+          dout[6] <= rx;  // Capture rx as the seventh data bit
+          count <= 0;
+          state <= RX_DATA_BIT7;
+        end else begin
+          count <= count + 1;
+        end
+      end
+
+      RX_DATA_BIT7: begin
+        if (count == NUM_CLKS_PER_BIT-1) begin
+          dout[7] <= rx;  // Capture rx as the eighth data bit
+          count <= 0;
+          state <= RX_STOP_BIT;
+        end else begin
+          count <= count + 1;
+        end
+      end
+
+      RX_STOP_BIT: begin
+        // Check stop bit at midpoint
+        if (count == NUM_CLKS_PER_BIT-1) begin
+          if (rx == 1) begin  // Stop bit should be high
+            done <= 1;    // Indicate that data is ready
+            state <= RX_IDLE;  // Return to idle state after a valid stop bit
+          end else begin
+            state <= RX_IDLE;  // Error in stop bit, reset to idle
+          end
+          count <= 0;
+        end else begin
+          count <= count + 1;
+        end
+      end
+
+      default: begin
+          state <= RX_IDLE;  // Default to idle for safety
+      end
      endcase
  end
 end
