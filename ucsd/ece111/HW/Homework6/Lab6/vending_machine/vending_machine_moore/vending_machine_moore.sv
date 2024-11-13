@@ -44,9 +44,8 @@ module vending_machine_moore(
     end
     CENTS_15: begin
       open = 1'b1;  // Dispense candy when we reach 15 cents
-        // Reset to CENTS_0 after dispensing
       if (N || D)
-        next_state = CENTS_0;
+        next_state = CENTS_0; // Reset to CENTS_0 after dispensing
     end
     default: next_state = CENTS_0; // Default to initial state in case of unexpected state
   endcase
