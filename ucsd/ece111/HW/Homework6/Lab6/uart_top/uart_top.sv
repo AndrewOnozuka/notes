@@ -12,12 +12,23 @@ module uart_top #(parameter NUM_CLKS_PER_BIT=16)
 logic serial_data_bit;
 
 // Instantiate uart transmitter module
-// student to add code
-
-
+uart_tx #(.NUM_CLKS_PER_BIT(NUM_CLKS_PER_BIT)) uart_tx_inst (
+    .clk(tx_clk),
+    .rstn(tx_rstn),
+    .din(tx_din),
+    .start(tx_start),
+    .done(tx_done),
+    .tx(serial_data_bit) // Output of transmitter connected to serial line
+);
 
 // Instantiate uart receiver module
-// student to add code
+uart_rx #(.NUM_CLKS_PER_BIT(NUM_CLKS_PER_BIT)) uart_rx_inst (
+    .clk(rx_clk),
+    .rstn(rx_rstn),
+    .rx(serial_data_bit), // Connect transmitter output to receiver input
+    .done(rx_done),
+    .dout(rx_dout)
+);
 
 endmodule: uart_top
 
