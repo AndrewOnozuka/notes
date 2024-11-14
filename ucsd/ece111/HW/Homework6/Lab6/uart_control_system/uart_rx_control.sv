@@ -59,20 +59,17 @@ always_ff@(posedge clk) begin
      WAIT: begin
        if(j < NUM_OF_BYTES) begin
          if(uart_rx_done == 1) begin
- 
-           // Student to add code here
-           
+            received_data <= uart_rx_data;  // Capture the data byte from uart_rx
+            state <= WRITE;                 // Move to WRITE state
          end
          else begin
-
-           // Student to add code here
-
+            mem_write_enable <= 0;          // Ensure write enable is low while waiting
+            state <= WAIT;                  // Stay in WAIT state
          end
       end
       else begin
-
-          // Student to add code here
-
+        message_received <= 1;           // Indicate all bytes have been received
+        state <= IDLE;                   // Go back to IDLE state
       end
      end
 	  
@@ -82,10 +79,10 @@ always_ff@(posedge clk) begin
      WRITE: begin
        // Note : Do not have mem_write_addr = mem_write_addr + 1 instead assign j to mem_write_addr as shown below
        mem_write_addr <= j; 
-   
-       
-       // Student to add code here
-
+       mem_write_enable <= 1;             // Enable writing to memory
+       mem_write_data <= received_data;   // Write received data to memory
+       j <= j + 1;                        // Increment the address counter
+       state <= WAIT;                     // Return to WAIT state
      end
 
      // In Default state move to IDLE state	  

@@ -62,15 +62,17 @@ always_ff@(posedge clk) begin
      READ: begin
        if(j < NUM_OF_BYTES) begin
         
-         // Student to add code here
          // Note : Do not have mem_read_addr = mem_read_addr + 1 instead assign j to mem_read_addr
          // as 'j' has been already incremented in wait state and new value is available to indicate next read address
+         mem_read_enable <= 1;      // Enable memory read
+         mem_read_addr <= j;        // Set memory address to read the next byte
+         state <= DELAY;            // Move to DELAY state
         
        end
        else begin
- 
-         // Student to add code here
-
+           transmission_done <= 1;    // Set transmission done when all bytes are sent
+           mem_read_enable <= 0;      // Disable memory read
+           state <= IDLE;             // Go back to IDLE state
        end
      end
      
@@ -88,9 +90,9 @@ always_ff@(posedge clk) begin
      // To do this, set uart_tx_start to '1' and pass mem_read_data to uart_tx_data   
      // Then move to WAIT state
      TRANSMIT: begin
-
-         // Student to add code here
-
+         uart_tx_start <= 1;           // Start UART transmission
+         uart_tx_data <= mem_read_data; // Load data byte for transmission
+         state <= WAIT;                // Move to WAIT state
      end
      
      // Wait until uart_tx has completed serial transmission of data byte to uart_rx
@@ -99,16 +101,14 @@ always_ff@(posedge clk) begin
      // Then move to READ sate if uart_tx_done is '1' otherwise state in WAIT state 
      // until uart_tx_done from uart_tx FSM is '1'
      WAIT: begin
-       if(uart_tx_done == 1) begin
-                   
-         // Student to add code here
-         // Remember to increment j <= j + 1 here
-
+       if(uart_tx_done == 1) begin  
+         uart_tx_start <= 0;       // Reset start signal
+         j <= j + 1;               // Increment byte counter
+         state <= READ;            // Move to READ state to fetch next byte
        end
        else begin
-        
-         // Student to add code here        
-
+          uart_tx_start <= 0;       // Keep start signal low
+          state <= WAIT;            // Stay in WAIT state
        end
      end
 
