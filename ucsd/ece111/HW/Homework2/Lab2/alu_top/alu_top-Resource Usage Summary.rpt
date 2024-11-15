@@ -1,0 +1,81 @@
+Resource Usage Summary report for alu_top
+Wed Oct 16 13:02:40 2024
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Resource Usage Summary
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++-----------------------------------------------+-------------------+
+; Resource                                      ; Usage             ;
++-----------------------------------------------+-------------------+
+; Estimated ALUTs Used                          ; 113               ;
+;     -- Combinational ALUTs                    ; 113               ;
+;     -- Memory ALUTs                           ; 0                 ;
+;     -- LUT_REGs                               ; 0                 ;
+; Dedicated logic registers                     ; 8                 ;
+;                                               ;                   ;
+; Estimated ALUTs Unavailable                   ; 9                 ;
+;     -- Due to unpartnered combinational logic ; 9                 ;
+;     -- Due to Memory ALUTs                    ; 0                 ;
+;                                               ;                   ;
+; Total combinational functions                 ; 113               ;
+; Combinational ALUT usage by number of inputs  ;                   ;
+;     -- 7 input functions                      ; 3                 ;
+;     -- 6 input functions                      ; 6                 ;
+;     -- 5 input functions                      ; 21                ;
+;     -- 4 input functions                      ; 31                ;
+;     -- <=3 input functions                    ; 52                ;
+;                                               ;                   ;
+; Combinational ALUTs by mode                   ;                   ;
+;     -- normal mode                            ; 54                ;
+;     -- extended LUT mode                      ; 3                 ;
+;     -- arithmetic mode                        ; 33                ;
+;     -- shared arithmetic mode                 ; 23                ;
+;                                               ;                   ;
+; Estimated ALUT/register pairs used            ; 122               ;
+;                                               ;                   ;
+; Total registers                               ; 8                 ;
+;     -- Dedicated logic registers              ; 8                 ;
+;     -- I/O registers                          ; 0                 ;
+;     -- LUT_REGs                               ; 0                 ;
+;                                               ;                   ;
+;                                               ;                   ;
+; I/O pins                                      ; 22                ;
+;                                               ;                   ;
+; DSP block 18-bit elements                     ; 0                 ;
+;                                               ;                   ;
+; Maximum fan-out node                          ; operand2[3]~input ;
+; Maximum fan-out                               ; 31                ;
+; Total fan-out                                 ; 466               ;
+; Average fan-out                               ; 2.82              ;
++-----------------------------------------------+-------------------+
+
+

@@ -1,0 +1,409 @@
+Script started on 2022-09-28 16:57:08-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="98"]
+cs30fa22kt@pi-cluster-159:~$ ls -la.[K[K [Ka .ssh
+total 28
+drwx--S---  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 26 17:18 .
+drwxr-s--- 10 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:57 ..
+-rw-------  1 cs30fa22kt ieng6_cs30fa22 1544 Sep 26 17:11 authorized_keys
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22  126 Sep 26 17:18 config
+-rw-------  1 cs30fa22kt ieng6_cs30fa22 3243 Sep 26 17:10 id_rsa
+-rw-r-----  1 cs30fa22kt ieng6_cs30fa22  755 Sep 26 17:10 id_rsa.pub
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22  409 Sep 26 17:09 known_hosts
+cs30fa22kt@pi-cluster-159:~$ ls -a[KlaR PA1
+PA1:
+total 28
+drwxr-sr-x  3 cs30fa22kt ieng6_cs30fa22  4096 Sep 28 16:49 .
+drwxr-s--- 10 cs30fa22kt ieng6_cs30fa22  4096 Sep 28 16:57 ..
+drwxr-sr-x  8 cs30fa22kt ieng6_cs30fa22  4096 Sep 28 16:49 .git
+-rwxr-xr-x  1 cs30fa22kt ieng6_cs30fa22 10380 Sep 28 16:45 hello
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   109 Sep 28 16:49 hello.c
+
+PA1/.git:
+total 44
+drwxr-sr-x  8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 .
+drwxr-sr-x  3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 branches
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   16 Sep 28 16:48 COMMIT_EDITMSG
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   92 Sep 28 16:43 config
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   73 Sep 28 16:43 description
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   23 Sep 28 16:43 HEAD
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 hooks
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22  118 Sep 28 16:49 index
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 info
+drwxr-sr-x  3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 logs
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 objects
+drwxr-sr-x  4 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 refs
+
+PA1/.git/branches:
+total 8
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+
+PA1/.git/hooks:
+total 56
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  478 Sep 28 16:43 applypatch-msg.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  896 Sep 28 16:43 commit-msg.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 3327 Sep 28 16:43 fsmonitor-watchman.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  189 Sep 28 16:43 post-update.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  424 Sep 28 16:43 pre-applypatch.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 1638 Sep 28 16:43 pre-commit.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 1492 Sep 28 16:43 prepare-commit-msg.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 1348 Sep 28 16:43 pre-push.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 4898 Sep 28 16:43 pre-rebase.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  544 Sep 28 16:43 pre-receive.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 3610 Sep 28 16:43 update.sample
+
+PA1/.git/info:
+total 12
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22  240 Sep 28 16:43 exclude
+
+PA1/.git/logs:
+total 16
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22  325 Sep 28 16:48 HEAD
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 refs
+
+PA1/.git/logs/refs:
+total 12
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 .
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 ..
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 heads
+
+PA1/.git/logs/refs/heads:
+total 12
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 .
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22  325 Sep 28 16:48 master
+
+PA1/.git/objects:
+total 44
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 .
+drwxr-sr-x  8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:48 43
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 4f
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 5a
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 95
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:48 cc
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 d4
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:46 fa
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 info
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 pack
+
+PA1/.git/objects/43:
+total 8
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:48 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22   52 Sep 28 16:48 d08f14e2f2db556f5c70806640b96a725e36c6
+
+PA1/.git/objects/4f:
+total 8
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22   52 Sep 28 16:44 0a9c58aadb532bfc3609d6eb3f649fa0f515ad
+
+PA1/.git/objects/5a:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  137 Sep 28 16:44 225e43fcce9ed636457f33864f7c6c42516b0e
+
+PA1/.git/objects/95:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:44 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  109 Sep 28 16:44 42825e286cd0991e49c24cc5f9c1e0deb645ea
+
+PA1/.git/objects/cc:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:48 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  161 Sep 28 16:48 9dd762278cec6dc7679a1b2863c2a1c0312816
+
+PA1/.git/objects/d4:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  111 Sep 28 16:49 7f1845c4a3646e9c7904c46249d590dd14f222
+
+PA1/.git/objects/fa:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:46 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  111 Sep 28 16:46 7d9bfe9d5b3f14d69d2d64096566f9c189e2f7
+
+PA1/.git/objects/info:
+total 8
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+
+PA1/.git/objects/pack:
+total 8
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 .
+drwxr-sr-x 11 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+
+PA1/.git/refs:
+total 16
+drwxr-sr-x 4 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:49 ..
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:48 heads
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 tags
+
+PA1/.git/refs/heads:
+total 8
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:48 .
+drwxr-sr-x 4 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22   41 Sep 28 16:48 master
+
+PA1/.git/refs/tags:
+total 8
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 .
+drwxr-sr-x 4 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:43 ..
+cs30fa22kt@pi-cluster-159:~$ ls -laR PA1B
+PA1B:
+total 176
+drwxr-sr-x  3 cs30fa22kt ieng6_cs30fa22   4096 Sep 28 16:54 .
+drwxr-s--- 10 cs30fa22kt ieng6_cs30fa22   4096 Sep 28 16:57 ..
+drwxr-sr-x  8 cs30fa22kt ieng6_cs30fa22   4096 Sep 28 16:56 .git
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22    517 Sep 28 16:51 hash.c
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22    125 Sep 28 16:51 hash.h
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   4628 Sep 28 16:53 hash.o
+-rwxr-xr-x  1 cs30fa22kt ieng6_cs30fa22 102015 Sep 28 16:51 How_to_Excel_with_Integrity_in_CSE_30.pdf
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22  11357 Sep 28 16:51 LICENSE
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22    977 Sep 28 16:53 Makefile
+-rwxr-xr-x  1 cs30fa22kt ieng6_cs30fa22  12340 Sep 28 16:54 printhash
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22    756 Sep 28 16:51 printhash.c
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   4764 Sep 28 16:54 printhash.o
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22     42 Sep 28 16:51 README.md
+
+PA1B/.git:
+total 52
+drwxr-sr-x  8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:56 .
+drwxr-sr-x  3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 branches
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   16 Sep 28 16:56 COMMIT_EDITMSG
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22  266 Sep 28 16:51 config
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   73 Sep 28 16:51 description
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22  101 Sep 28 16:55 FETCH_HEAD
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   21 Sep 28 16:51 HEAD
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 hooks
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22  609 Sep 28 16:54 index
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 info
+drwxr-sr-x  3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 logs
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 objects
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22   41 Sep 28 16:55 ORIG_HEAD
+-rw-r--r--  1 cs30fa22kt ieng6_cs30fa22  112 Sep 28 16:51 packed-refs
+drwxr-sr-x  5 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 refs
+
+PA1B/.git/branches:
+total 8
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:56 ..
+
+PA1B/.git/hooks:
+total 56
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:56 ..
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  478 Sep 28 16:51 applypatch-msg.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  896 Sep 28 16:51 commit-msg.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 3327 Sep 28 16:51 fsmonitor-watchman.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  189 Sep 28 16:51 post-update.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  424 Sep 28 16:51 pre-applypatch.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 1638 Sep 28 16:51 pre-commit.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 1492 Sep 28 16:51 prepare-commit-msg.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 1348 Sep 28 16:51 pre-push.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 4898 Sep 28 16:51 pre-rebase.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22  544 Sep 28 16:51 pre-receive.sample
+-rwxr-xr-x 1 cs30fa22kt ieng6_cs30fa22 3610 Sep 28 16:51 update.sample
+
+PA1B/.git/info:
+total 12
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:56 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22  240 Sep 28 16:51 exclude
+
+PA1B/.git/logs:
+total 16
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:56 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22  361 Sep 28 16:54 HEAD
+drwxr-sr-x 4 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 refs
+
+PA1B/.git/logs/refs:
+total 16
+drwxr-sr-x 4 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ..
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 heads
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 remotes
+
+PA1B/.git/logs/refs/heads:
+total 12
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 4 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22  361 Sep 28 16:54 main
+
+PA1B/.git/logs/refs/remotes:
+total 12
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 4 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ..
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 origin
+
+PA1B/.git/logs/refs/remotes/origin:
+total 12
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22  188 Sep 28 16:51 HEAD
+
+PA1B/.git/objects:
+total 72
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 .
+drwxr-sr-x  8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:56 ..
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 06
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 16
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 26
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 2b
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 46
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 57
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 65
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 82
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 b6
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ba
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 bd
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 d6
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 e4
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 f4
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 info
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 pack
+
+PA1B/.git/objects/06:
+total 8
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22   50 Sep 28 16:51 2c1e1ec3cf5ae93c52ee2c1c4e220201eae79d
+
+PA1B/.git/objects/16:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  574 Sep 28 16:51 f5e70ce0bea9e656c458d10c7b866ec01f2662
+
+PA1B/.git/objects/26:
+total 20
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22 4447 Sep 28 16:51 1eeb9e9f8b2b4b0d119366dda99c6fd7d35c64
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  567 Sep 28 16:54 2c46ac11f770afdf9bd296a30e411c48ef5bdf
+
+PA1B/.git/objects/2b:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  180 Sep 28 16:54 0a7455bacde3fb3b14d40931c3e46b53614a52
+
+PA1B/.git/objects/46:
+total 16
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  118 Sep 28 16:51 60f3f78984082890752d32ba11d26fa94448b1
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22   85 Sep 28 16:51 a76daddb26560827f0bdb452776b845017ff22
+
+PA1B/.git/objects/57:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  302 Sep 28 16:51 344b5715c7f00a3a7aa7d7a8a8336f6ee1a87f
+
+PA1B/.git/objects/65:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  203 Sep 28 16:51 03a00d1d19b60d68d5edba7ad1a5e73d73f256
+
+PA1B/.git/objects/82:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  525 Sep 28 16:51 77d7532e0578d63d14e94902d70b2fe2703cbe
+
+PA1B/.git/objects/b6:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  426 Sep 28 16:51 e0a77eec5a2b04e9cfcdec91e768feb157105d
+
+PA1B/.git/objects/ba:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  163 Sep 28 16:51 f0b7d624c6ae478960a3c2badc794d350864b7
+
+PA1B/.git/objects/bd:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  273 Sep 28 16:54 9a24ac05284d27dbaf40bb7835d94a9acbe6b7
+
+PA1B/.git/objects/d6:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  273 Sep 28 16:51 e1680291230c7cb00c3878b7ebff562ddc35bf
+
+PA1B/.git/objects/e4:
+total 108
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22  4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22  4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22 98184 Sep 28 16:51 b25cd0258c0e71a94350c4d9831f26fa5cd0eb
+
+PA1B/.git/objects/f4:
+total 12
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+-r--r--r--  1 cs30fa22kt ieng6_cs30fa22  562 Sep 28 16:51 dcb7cfcfd87bc5c7e9be1a78e7274567c6b2b8
+
+PA1B/.git/objects/info:
+total 8
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+
+PA1B/.git/objects/pack:
+total 8
+drwxr-sr-x  2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 18 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 ..
+
+PA1B/.git/refs:
+total 20
+drwxr-sr-x 5 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 8 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:56 ..
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 heads
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 remotes
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 tags
+
+PA1B/.git/refs/heads:
+total 8
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:54 .
+drwxr-sr-x 5 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22   41 Sep 28 16:54 main
+
+PA1B/.git/refs/remotes:
+total 12
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 5 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ..
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 origin
+
+PA1B/.git/refs/remotes/origin:
+total 8
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 3 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ..
+-rw-r--r-- 1 cs30fa22kt ieng6_cs30fa22   30 Sep 28 16:51 HEAD
+
+PA1B/.git/refs/tags:
+total 8
+drwxr-sr-x 2 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 .
+drwxr-sr-x 5 cs30fa22kt ieng6_cs30fa22 4096 Sep 28 16:51 ..
+cs30fa22kt@pi-cluster-159:~$ exit
+
+Script done on 2022-09-28 16:57:45-07:00 [COMMAND_EXIT_CODE="0"]

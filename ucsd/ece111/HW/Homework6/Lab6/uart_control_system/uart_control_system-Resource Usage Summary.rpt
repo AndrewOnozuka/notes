@@ -1,0 +1,81 @@
+Resource Usage Summary report for uart_control_system
+Wed Nov 13 17:44:07 2024
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Resource Usage Summary
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++-----------------------------------------------+-------------+
+; Resource                                      ; Usage       ;
++-----------------------------------------------+-------------+
+; Estimated ALUTs Used                          ; 227         ;
+;     -- Combinational ALUTs                    ; 227         ;
+;     -- Memory ALUTs                           ; 0           ;
+;     -- LUT_REGs                               ; 0           ;
+; Dedicated logic registers                     ; 146         ;
+;                                               ;             ;
+; Estimated ALUTs Unavailable                   ; 29          ;
+;     -- Due to unpartnered combinational logic ; 29          ;
+;     -- Due to Memory ALUTs                    ; 0           ;
+;                                               ;             ;
+; Total combinational functions                 ; 227         ;
+; Combinational ALUT usage by number of inputs  ;             ;
+;     -- 7 input functions                      ; 3           ;
+;     -- 6 input functions                      ; 31          ;
+;     -- 5 input functions                      ; 12          ;
+;     -- 4 input functions                      ; 97          ;
+;     -- <=3 input functions                    ; 84          ;
+;                                               ;             ;
+; Combinational ALUTs by mode                   ;             ;
+;     -- normal mode                            ; 160         ;
+;     -- extended LUT mode                      ; 3           ;
+;     -- arithmetic mode                        ; 64          ;
+;     -- shared arithmetic mode                 ; 0           ;
+;                                               ;             ;
+; Estimated ALUT/register pairs used            ; 262         ;
+;                                               ;             ;
+; Total registers                               ; 146         ;
+;     -- Dedicated logic registers              ; 146         ;
+;     -- I/O registers                          ; 0           ;
+;     -- LUT_REGs                               ; 0           ;
+;                                               ;             ;
+;                                               ;             ;
+; I/O pins                                      ; 30          ;
+;                                               ;             ;
+; DSP block 18-bit elements                     ; 0           ;
+;                                               ;             ;
+; Maximum fan-out node                          ; clock~input ;
+; Maximum fan-out                               ; 146         ;
+; Total fan-out                                 ; 1306        ;
+; Average fan-out                               ; 3.02        ;
++-----------------------------------------------+-------------+
+
+
