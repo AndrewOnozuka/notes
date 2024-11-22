@@ -30,18 +30,24 @@ always_ff@(posedge dest_clk, posedge dest_reset) begin
      // enable loading of data in the data register
      ACK_REQ_PHASE1: begin
 
-
-        // Student to add code here
-
+      ack_o <= 0;       // Acknowledge signal is low
+      data_in_en <= 0;  // Data loading disabled
+      if (req_i == 1)   // Wait for request signal from transmitter
+         state <= ACK_REQ_PHASE2;  // Move to the next phase
+      else
+         state <= ACK_REQ_PHASE1;  // Remain in the current state
 
      end
      // In response to req_i=1 from tx_fsm, generate ack_o = 1 and enable
      // loading of data in destination register and then wait for req_i = 0
      ACK_REQ_PHASE2: begin
 
-
-        // Student to add code here
-
+      ack_o <= 1;       // Acknowledge signal is high
+      data_in_en <= 1;  // Enable data loading
+      if (req_i == 0)   // Wait for request signal to go low
+         state <= ACK_REQ_PHASE1;  // Move back to the first phase
+      else
+        state <= ACK_REQ_PHASE2;  // Remain in the current state
 
      end
      // In Default state move to IDLE state    

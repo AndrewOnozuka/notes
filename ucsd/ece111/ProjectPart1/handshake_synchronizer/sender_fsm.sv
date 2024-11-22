@@ -35,7 +35,14 @@ always_ff@(posedge src_clk, posedge src_reset) begin
      // Wait for start == 1 and then transition to req_ouest state
      IDLE: begin
   
-        // Student to add code here
+      req_o <= 0;
+      data_out_en <= 0;
+      ready <= 1;  // Ready to accept new data
+      if (start == 1) begin
+         state <= REQ_ACK_PHASE1;  // Transition to the next state
+      end else begin
+         state <= IDLE;  // Remain in IDLE
+      end
 
      end
      // Generate req_o = 1 to indicate handshake_rx_fsm that data is available
@@ -45,8 +52,14 @@ always_ff@(posedge src_clk, posedge src_reset) begin
      // Wait for assertion of ack_i from handshake_rx_fsm
      REQ_ACK_PHASE1: begin
 
-        // Student to add code here
-
+      req_o <= 1;       // Signal to receiver that data is available
+      data_out_en <= 1; // Enable the data buffer to send data
+      ready <= 0;       // Not ready to accept new data
+      if (ack_i == 1) begin
+         state <= REQ_ACK_PHASE2;  // Wait for acknowledgment from the receiver
+      end else begin
+         state <= REQ_ACK_PHASE1;  // Remain in this state
+      end
 
      end
      // De-assert buffer data_out_en to 0 to latch current data until it is received by the receiver
@@ -54,9 +67,14 @@ always_ff@(posedge src_clk, posedge src_reset) begin
      // Wait for de-assertion of ack_i from handshake_rx_fsm
      REQ_ACK_PHASE2: begin
 
-
-        // Student to add code here
-
+      req_o <= 0;       // Deassert request signal
+      data_out_en <= 0; // Latch the current data
+      ready <= 0;       // Continue not accepting new data
+      if (ack_i == 0) begin
+         state <= IDLE;  // Transition back to IDLE
+      end else begin
+         state <= REQ_ACK_PHASE2;  // Remain in this state
+      end
 
      end
      // In Default state move to IDLE state    
