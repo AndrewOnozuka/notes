@@ -1,0 +1,22 @@
+Fitter Status : Successful - Fri Dec 13 21:32:28 2024
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : bitcoin_hash
+Top-level Entity Name : bitcoin_hash
+Family : Arria II GX
+Device : EP2AGX45CU17I3
+Timing Models : Final
+Logic utilization : 11 %
+    Combinational ALUTs : 2,476 / 36,100 ( 7 % )
+    Memory ALUTs : 0 / 18,050 ( 0 % )
+    Dedicated logic registers : 2,538 / 36,100 ( 7 % )
+Total registers : 2538
+Total pins : 118 / 176 ( 67 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 2,939,904 ( 0 % )
+DSP block 18-bit elements : 0 / 232 ( 0 % )
+Total GXB Receiver Channel PCS : 0 / 4 ( 0 % )
+Total GXB Receiver Channel PMA : 0 / 4 ( 0 % )
+Total GXB Transmitter Channel PCS : 0 / 4 ( 0 % )
+Total GXB Transmitter Channel PMA : 0 / 4 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )
