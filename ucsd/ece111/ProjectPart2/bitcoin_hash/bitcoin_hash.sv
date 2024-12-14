@@ -13,11 +13,11 @@ parameter num_nonces = 16;
 logic [31:0] h0out[num_nonces], h1out[num_nonces], h2out[num_nonces], h3out[num_nonces],
              h4out[num_nonces], h5out[num_nonces], h6out[num_nonces], h7out[num_nonces];
 
-logic [31:0] message[20];                       // total input message 20 words
-logic [31:0] w[16];                             // w0 to w15, 16 words of input msg, 512 bits
-logic [31:0] a, b, c, d, e, f, g, h;            // Working variables
-logic [31:0] h0, h1, h2, h3, h4, h5, h6, h7;    // Hash values
-logic [31:0] h0i, h1i, h2i, h3i, h4i, h5i, h6i, h7i;     // initial hash values for phase 3
+logic [31:0] message[20];                                       // total input message 20 words
+logic [31:0] w[16];                                             // w0 to w15, 16 words of input msg, 512 bits
+logic [31:0] a, b, c, d, e, f, g, h;                            // Working variables
+logic [31:0] h0, h1, h2, h3, h4, h5, h6, h7;                    // Hash values
+logic [31:0] h0i, h1i, h2i, h3i, h4i, h5i, h6i, h7i;            // initial hash values for phase 3
 logic [31:0] h0p1, h1p1, h2p1, h3p1, h4p1, h5p1, h6p1, h7p1;
 logic [15:0] offset; // in word address
 logic        write_en;
