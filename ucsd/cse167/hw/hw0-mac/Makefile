@@ -1,4 +1,4 @@
-CC = g++
+CC = g++ 
 
 BREWPATH = $(shell brew --prefix)
 CFLAGS = -g -std=c++11 -Wno-deprecated-register -Wno-deprecated-declarations -DGL_DO_NOT_WARN_IF_MULTI_GL_VERSION_HEADERS_INCLUDED
