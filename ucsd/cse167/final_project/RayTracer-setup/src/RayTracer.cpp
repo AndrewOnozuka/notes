@@ -13,7 +13,7 @@
 #include <atomic>
 #include <condition_variable>
 #include <glm/glm.hpp>
-#include <glm/gtc/random.hpp>
+#include <glm/gtc/random.hpp>       // Required for glm::linearRand()
 #include <glm/gtx/string_cast.hpp>
 #include <glm/gtx/transform.hpp>
 #include <iostream>
@@ -63,11 +63,11 @@ Ray RayTracer::ray_thru_pixel(int i, int j) {
     ray.p0 = glm::vec3(camera.eye);
 
     /**
-     * TODO: Task 1.2
-     * Randomly sample x and y inside pixel(i, j)
+     * TODO: Task 3 - Randomly sample x and y inside pixel(i, j)
      */
-    float x = 0.5f;
-    float y = 0.5f;
+    // Random numbers in [0,1]
+    float x = glm::linearRand(0.0f, 1.0f);
+    float y = glm::linearRand(0.0f, 1.0f);
 
     /**
      * TODO: Task 1.1
@@ -206,7 +206,7 @@ void RayTracer::draw() {
          * TODO: After Completing Task 3
          * set `active_samples_per_pixel = 1`
          */
-        active_samples_per_pixel = samples_per_pixel;  // TODO: Hardcode this value to 1 once Task 3 is complete
+        active_samples_per_pixel = 1;  // Now hardcoded to 1 for normal shading mode
         active_max_bounces = 1;
     } else {
         active_samples_per_pixel = samples_per_pixel;

@@ -32,6 +32,37 @@ std::vector<Intersection> GeomTriangle::intersect(Ray &ray) {
      * TODO: Implement the Ray intersection with the current geometry
      */
 
+    // Extract triangle vertices
+    vec3 v0 = vertices[0];
+    vec3 v1 = vertices[1];
+    vec3 v2 = vertices[2];
+
+    // Compute triangle edges
+    vec3 edge1 = v1 - v0;
+    vec3 edge2 = v2 - v0;
+
+    // Compute determinant using cross product
+    vec3 h = cross(ray.dir, edge2);
+    float det = dot(edge1, h);
+
+    // If determinant is near zero, ray is parallel to triangle (no intersection)
+    if (abs(det) < 1e-6) return intersections;
+
+    float inv_det = 1.0f / det;
+
+    // Compute barycentric coordinates
+    vec3 s = ray.p0 - v0;
+    float u = dot(s, h) * inv_det;
+    if (u < 0.0f || u > 1.0f) return intersections;
+
+    vec3 q = cross(s, edge1);
+    float v = dot(ray.dir, q) * inv_det;
+    if (v < 0.0f || u + v > 1.0f) return intersections;
+
+    // Compute intersection distance t
+    float t = dot(edge2, q) * inv_det;
+    if (t <= 0) return intersections; // Intersection behind camera
+
     /**
      * Once you find the intersection, add it to the `intersections` vector.
      *
@@ -50,9 +81,16 @@ std::vector<Intersection> GeomTriangle::intersect(Ray &ray) {
      *   where t > 0.
      */
 
+    // Compute intersection point
+    vec3 point = ray.p0 + t * ray.dir;
+
+    // Compute normal (interpolated if smooth shading, flat otherwise)
+    vec3 normal = normalize(cross(edge1, edge2));
+    
     /**
      * TODO: Update `intersections`
      */
+    intersections.push_back({t, point, normal, this, nullptr});
 
     return intersections;
 }

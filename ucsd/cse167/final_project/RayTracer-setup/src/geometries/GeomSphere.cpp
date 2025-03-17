@@ -18,6 +18,32 @@ std::vector<Intersection> GeomSphere::intersect(Ray &ray) {
     /**
      * TODO: Implement the Ray intersection with the current geometry
      */
+    // Sphere properties (centered at origin in model space)
+    vec3 center = vec3(0.0f);
+    float radius = 1.0f;
+
+    // Extract ray properties
+    vec3 ro = ray.p0;         // Ray origin
+    vec3 rd = normalize(ray.dir); // Ray direction (should already be normalized)
+
+    // Compute quadratic equation coefficients
+    vec3 oc = ro - center;
+    float a = dot(rd, rd);
+    float b = 2.0f * dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+
+    // Compute discriminant
+    float discriminant = b * b - 4 * a * c;
+
+    // No real intersection if discriminant is negative
+    if (discriminant < 0) {
+        return intersections;
+    }
+
+    // Compute the two possible intersection distances
+    float sqrt_disc = sqrt(discriminant);
+    float t1 = (-b - sqrt_disc) / (2.0f * a);
+    float t2 = (-b + sqrt_disc) / (2.0f * a);
 
     /**
      * Once you find the intersection, add it to the `intersections` vector.
@@ -40,6 +66,17 @@ std::vector<Intersection> GeomSphere::intersect(Ray &ray) {
     /**
      * TODO: Update `intersections`
      */
+    // Only add intersections in front of the camera (t > 0)
+    if (t1 > 0) {
+        vec3 point = ro + t1 * rd;
+        vec3 normal = normalize(point - center);
+        intersections.push_back({t1, point, normal, this, nullptr});
+    }
+    if (t2 > 0) {
+        vec3 point = ro + t2 * rd;
+        vec3 normal = normalize(point - center);
+        intersections.push_back({t2, point, normal, this, nullptr});
+    }
 
     return intersections;
 };
