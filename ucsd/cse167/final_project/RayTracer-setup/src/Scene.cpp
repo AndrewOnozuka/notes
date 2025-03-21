@@ -2,6 +2,7 @@
 #include <stack>
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/string_cast.hpp>
+#include <glm/gtc/random.hpp>
 
 #include "ModelBase.h"
 #include "Ray.h"
@@ -104,8 +105,26 @@ Ray Scene::intersect(Ray &ray) const {
         // update color for nth last bounce
         ray.color = intersection.model->material->color_of_last_bounce(ray, intersection, *this);
 
-        // This function will give out next ray and
-        // update wip color params as well
+    // ----------------------
+    // RUSSIAN ROULETTE CODE
+    // ----------------------
+    float lambda = 0.2f;  // Termination probability
+    int min_bounces = 2;  // Guarantee at least 2 bounces before applying Russian Roulette
+
+    if (ray.n_bounces >= min_bounces) {
+        float r = linearRand(0.0f, 1.0f);
+        if (r < lambda) {
+            // Terminate ray
+            ray.isWip = false;
+            return ray;
+        } else {
+            // Survive => Scale W_wip for unbiased estimation
+            ray.W_wip *= 1.0f / (1.0f - lambda);
+        }
+    }
+    // ----------------------
+
+        // If not killed, continue to sample the next bounce
         ray = intersection.model->material->sample_ray_and_update_radiance(ray, intersection);
 
         return ray;
