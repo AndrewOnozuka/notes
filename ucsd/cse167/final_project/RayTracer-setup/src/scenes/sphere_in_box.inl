@@ -18,6 +18,7 @@ Scene* sphere_in_box() {
     std::shared_ptr<GlossyMaterial> diffuse_material_red_wall = std::make_shared<GlossyMaterial>(vec3(1.0f, 0.0f, 0.0f), vec3(0.0f), 0.0);
     std::shared_ptr<GlossyMaterial> diffuse_material_green_wall = std::make_shared<GlossyMaterial>(vec3(0.0f, 1.0f, 0.0f), vec3(0.0f), 0.0);
     std::shared_ptr<GlossyMaterial> glossy_material = std::make_shared<GlossyMaterial>(vec3(0.5f, 0.5f, 1.0f), vec3(0.25f), 0.5f);
+    // std::shared_ptr<GlossyMaterial> glossy_material = std::make_shared<GlossyMaterial>(vec3(0.3f, 0.3f, 0.8f), vec3(0.8f), 0.3f);
     std::shared_ptr<GlossyMaterial> light_material = std::make_shared<GlossyMaterial>(vec3(0.0f), vec3(0.0f), 0.5);
     light_material->convert_to_light(vec3(1.0f), vec3(70.0f));  // color, intensity
 

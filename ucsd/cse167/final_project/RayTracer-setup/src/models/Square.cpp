@@ -7,6 +7,7 @@
 using namespace glm;
 
 Square::Square(vec3 center, float side_len, vec3 normal, std::shared_ptr<MaterialBase> mat) {
+    this->center = center;
     this->material = mat;
     this->side_len = side_len;
 
@@ -51,7 +52,7 @@ vec3 Square::get_surface_point() {
     /**
      * TODO: use tangent and bitangent to sample a uniformly random point on square
      */
-    vec3 samplePoint = center;
+    vec3 samplePoint = center + u * side_len * tangent + v * side_len * bitangent;
 
     // transform to world space
     return vec3(transformation_matrix * vec4(samplePoint, 1.0f));
