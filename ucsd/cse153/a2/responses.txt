@@ -1,0 +1,47 @@
+{
+  "submission_335886118": 
+    [(2,  "very in depth analysis with graphs"),  # Task 1, analysis
+     (2,  "good explanation of pipeline and modeling with cons"),  # Task 1, modeling
+     (2,  "lots of detail in the evaluation of music produced"),  # Task 1, evaluation
+     (1.75,  "good explanation of other related work"),  # Task 1, discussion
+     (2,  "sounds cool"),  # Task 1, musical quality (NOT GRADED)
+     (2,  "very in depth analysis with graphs"),  # Task 2, analysis
+     (2,  "good explanation of pipeline and modeling with cons"),  # Task 2, modeling
+     (2,  "lots of detail in the evaluation of music produced"),  # Task 2, evaluation
+     (1.75,  "good explanation of other related work"),  # Task 2, discussion
+     (2, "also sounds cool")], # Task 2, musical quality (NOT GRADED)
+  "submission_335901562": 
+    [(2,  "good analysis of data processing with lots of metrics"),  # Task 1, analysis
+     (2,  "good explanation of tradeoffs"),  # Task 1, modeling
+     (2,  "connects to published papers"),  # Task 1, evaluation
+     (2,  "explains other related work, citations"),  # Task 1, discussion
+     (2,  "short explanation of score"),  # Task 1, musical quality (NOT GRADED)
+     (1.75,  "good analysis of data processing with lots of metrics"),  # Task 2, analysis
+     (1.75,  "a bit long"),  # Task 2, modeling
+     (1.5,  "doesn't really make music"),  # Task 2, evaluation
+     (1.75,  "explains related work"),  # Task 2, discussion
+     (0, "it just generates white noise")], # Task 2, musical quality (NOT GRADED)
+  "submission_336013231": 
+    [(1.75,  "created own dataset"),  # Task 1, analysis
+     (1.75,  "explains his model"),  # Task 1, modeling
+     (1.75,  "explains his code"),  # Task 1, evaluation
+     (1.75,  "explains related work"),  # Task 1, discussion
+     (0,  "no music"),  # Task 1, musical quality (NOT GRADED)
+     (1.75,  "created own dataset"),  # Task 2, analysis
+     (1.75,  "explains his model"),  # Task 2, modeling
+     (1.75,  "explains his code"),  # Task 2, evaluation
+     (1.75,  "explains related work"),  # Task 2, discussion
+     (0, "no music")], # Task 2, musical quality (NOT GRADED)
+  "submission_336015561": 
+    [(1.5,  "they did all four tasks but briefly"),  # Task 1, analysis
+     (1.5,  "they did all four tasks but briefly"),  # Task 1, modeling
+     (1.5,  "they did all four tasks but briefly"),  # Task 1, evaluation
+     (1.5,  "they did all four tasks but briefly"),  # Task 1, discussion
+     (0,  "not a fan of the ai voiceover, no music"),  # Task 1, musical quality (NOT GRADED)
+     (1.5,  "they did all four tasks but briefly"),  # Task 2, analysis
+     (1.5,  "they did all four tasks but briefly"),  # Task 2, modeling
+     (1.5,  "they did all four tasks but briefly"),  # Task 2, evaluation
+     (1.5,  "they did all four tasks but briefly"),  # Task 2, discussion
+     (0, "not a fan of the ai voiceover, no music")], # Task 2, musical quality (NOT GRADED)
+  "ranking": ["submission_335886118", "submission_335901562", "submission_336013231", "submission_336015561"]
+}
